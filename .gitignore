@@ -1,0 +1,12 @@
+node_modules
+node_modules/
+/node_modules
+node_modules*
+package.json
+package-lock.json
+Html
+index.js
+config
+db.js
+user.js
+.vscode

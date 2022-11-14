@@ -1,0 +1,80 @@
+meta(charset="utf-8")
+meta(name="viewport", content="width=device-width,initial-scale=1")
+title Urban-farmer-registration-form
+link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi", crossorigin="anonymous")
+link(rel="stylesheet", href="/css/main.css")
+nav.navbar.navbar-expand-lg
+  .container
+    a.navbar-brand(href="#") U Farm
+    button.navbar-toggler(type="button", data-bs-toggle="collapse", data-bs-target="#navbarScroll", aria-controls="navbarScroll", aria-expanded="false", aria-label="Toggle navigation")
+      span.navbar-toggler-icon
+    .collapse.navbar-collapse#navbarScroll
+      ul.navbar-nav.ms-auto.my-2.my-lg-0(style="--bs-scroll-height: 100px;")
+        li.nav-item
+          a.nav-link(href="#") Home
+        li.nav-item
+          a.nav-link(href="#") Products
+        li.nav-item
+          a.nav-link(href="#") Account
+section#urbanFarmerRegistration
+  .container.justify-content-center
+    h3.text-center Urban-Farmer-Registration
+    form.row-g-(action="/registerUrbanFarmer", method="post")
+      .row
+        .col-md-6
+          label.form-label(for="firstName") First Name
+          input.form-control#firstName(name="firstName" type="text")
+        .col-md-6
+          label.form-label(for="lastName") Last Name
+          input.form-control#lastName(name= "lastName" type="text")
+        div
+          .row
+            .col-md-4
+              label.form-label(for="uniqueId") Unique Id
+              input.form-control#uniqueId(name="uniqueID" type="text")
+            .col-md-4
+              label.form-label(for="NIN") NIN
+              input.form-control#NIN(name="NIN" type="text")
+            .col-md-4
+              label.form-label(for="inputState") Ward Name
+              select#inputState.form-select(name = "wardName")
+                option(selected) Choose...
+                option Massaja A.
+                option Massaja B.
+                option Massaja C.
+                option Massaja D.
+          .row
+            .col-md-4
+              label.form-label(for="gender") Gender
+              select#Gender.form-select (name = "gender")
+                option(selected) Choose...
+                option Male.
+                option Female.
+                option Other.
+            .col-md-4
+              label.form-label(for="phone") Phone Number
+              input.form-control#productName(name = "phone" type="text")
+            .col-md-4
+              label.form-label(for="dateOfBirth") Date of birth
+              input.form-control#dateOfBirth(name="dateOfBirth" type="date")
+          .row
+            .col-md-4
+              label.form-label(for="input") Activities Undertaken
+              select#activitiesUndertaken.form-select(name="activitiesUndertaken")
+                option(selected) Choose...
+                option Weeding
+                option Harvesting.
+                option Planting.
+                option Value Addition.
+            .col-md-8
+              label.form-label(for="urbanFarmerRegDate") Date of Registration
+              input.form-control#productUploadDate(name="urbanFarmerRegDate" type="date")
+        .col-12.text-center.py-5
+          button.btn.btn-primary(type="submit") Register
+section#footer
+  .container.py-5.bg-grey.fluid
+    .row
+      .col.ms-auto.text-center
+        hr
+        p1 Copyright © 2022 Cohort-12 U Farm Initiatitive
+script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js", integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3", crossorigin="anonymous")
