@@ -1,8 +1,8 @@
 meta(charset="utf-8")
 meta(name="viewport", content="width=device-width,initial-scale=1")
-title farmer-one-registration-form
+title General-User-registration-form
 link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi", crossorigin="anonymous")
-link(rel="stylesheet", href="/css/main.css")
+link(rel="stylesheet", href="./main.css")
 nav.navbar.navbar-expand-lg
   .container
     a.navbar-brand(href="#") U Farm
@@ -18,7 +18,7 @@ nav.navbar.navbar-expand-lg
           a.nav-link(href="#") Account
 section#productUpload
   .container.justify-content-center
-    h3.text-center Farmer-One-Registration
+    h3.text-center Registration
     form.row-g-3(action="/register", method="post")
       .row
         .col-md-6
@@ -31,60 +31,28 @@ section#productUpload
           .row
             .col-md-4
               label.form-label(for="uniqueId") Unique Id
-              input.form-control#uniqueId(type="text")
+              input.form-control#uniqueId(type="number")
             .col-md-4
               label.form-label(for="NIN") NIN
               input.form-control#NIN(type="text")
-            .col-md-4
-              label.form-label(for="wardName") Ward Name
-              select#wardName.form-select
-                option(selected) Choose...
-                option Massaja A.
-                option Massaja B.
-                option Massaja C.
-                option Massaja D.
           .row
             .col-md-4
               label.form-label(for="gender") Gender
-              select#gender.form-select
+              select#Gender.form-select
                 option(selected) Choose...
                 option Male.
                 option Female.
                 option Other.
             .col-md-4
               label.form-label(for="phoneNumber") Phone Number
-              input.form-control#phoneNumber(type="text")
+              input.form-control#phoneNumber(type="phone")
             .col-md-4
               label.form-label(for="dateOfBirth") Date of birth
               input.form-control#dateOfBirth(type="date")
           .row
             .col-md-4
-              label.form-label(for="activitiesUndertaken") Activities Undertaken
-              select#activitiesUndertaken.form-select
-                option(selected) Choose...
-                option Weeding
-                option Harvesting.
-                option Planting.
-                option Value Addition.
-            .col-md-4
-              label.form-label(for="residenceType") Residence Type
-              select#residenceType.form-select
-                option(selected) Choose...
-                option Permanent
-                option Temporary
-            .col-md-4.py-4
-              .input-group
-                label.form-label(for="periodOfStay") Period of stay
-                select#periodOfStay.form-select
-                  option(selected) Choose...
-                  option Massaja A.
-                  option Massaja B.
-                  option Massaja C.
-                  option Massaja D.
-          .row
-            .col-md-4
               label.form-label(for="registrationDate") Date of Registration
-              input.form-control#registrationDate(type="date")
+              input.form-control#productUploadDate(type="date")
             .col-lg-8.py-4
               label.form-label(for="directions") Directions
               input.form-control-lg#directions(type="text")

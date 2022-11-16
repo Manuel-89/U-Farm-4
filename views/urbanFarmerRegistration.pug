@@ -19,7 +19,7 @@ nav.navbar.navbar-expand-lg
 section#urbanFarmerRegistration
   .container.justify-content-center
     h3.text-center Urban-Farmer-Registration
-    form.row-g-(action="/registerUrbanFarmer", method="post")
+    form.row-g-(action="/register", method="post")
       .row
         .col-md-6
           label.form-label(for="firstName") First Name
@@ -31,7 +31,7 @@ section#urbanFarmerRegistration
           .row
             .col-md-4
               label.form-label(for="uniqueId") Unique Id
-              input.form-control#uniqueId(name="uniqueID" type="text")
+              input.form-control#uniqueId(name="uniqueId" type="number")
             .col-md-4
               label.form-label(for="NIN") NIN
               input.form-control#NIN(name="NIN" type="text")
@@ -46,31 +46,42 @@ section#urbanFarmerRegistration
           .row
             .col-md-4
               label.form-label(for="gender") Gender
-              select#Gender.form-select (name = "gender")
+              select#gender.form-select 
                 option(selected) Choose...
                 option Male.
                 option Female.
                 option Other.
             .col-md-4
-              label.form-label(for="phone") Phone Number
-              input.form-control#productName(name = "phone" type="text")
+              label.form-label(for="phoneNumber") Phone Number
+              input.form-control#productName(name = "phoneNumber" type="text")
             .col-md-4
               label.form-label(for="dateOfBirth") Date of birth
               input.form-control#dateOfBirth(name="dateOfBirth" type="date")
           .row
             .col-md-4
-              label.form-label(for="input") Activities Undertaken
+              label.form-label(for="activitiesUndertaken") Activities Undertaken
               select#activitiesUndertaken.form-select(name="activitiesUndertaken")
                 option(selected) Choose...
                 option Weeding
                 option Harvesting.
                 option Planting.
                 option Value Addition.
-            .col-md-8
-              label.form-label(for="urbanFarmerRegDate") Date of Registration
-              input.form-control#productUploadDate(name="urbanFarmerRegDate" type="date")
-        .col-12.text-center.py-5
-          button.btn.btn-primary(type="submit") Register
+            .col-md-4
+              label.form-label(for="registrationDate") Date of Registration
+              input.form-control#registrationDate(name="registrationDate" type="date")
+            .col-md-6.mx-auto
+              label.form-label(for="role") Role
+              select#role.form-select
+               option(selected) Choose...
+               option Urban Farmer.
+               option Farmer One.
+               option Agricultural Officer.
+               option User.
+            .col-md-4
+              label.form-label(for="password") Password
+              input.form-control#productUploadDate(name="password" type="password")
+            .col-12.text-center.py-5
+              button.btn.btn-primary(type="submit") Register
 section#footer
   .container.py-5.bg-grey.fluid
     .row
