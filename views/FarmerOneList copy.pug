@@ -1,6 +1,6 @@
 meta(charset="utf-8")
 meta(name="viewport", content="width=device-width,initial-scale=1")
-title U Farm Home
+title Farmer One List
 link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi", crossorigin="anonymous")
 link(href="./main.css", rel="stylesheet")
 nav.navbar.navbar-expand-lg
@@ -18,9 +18,9 @@ nav.navbar.navbar-expand-lg
           a.nav-link(href="#") Account
 section#main
   .container.py-5
-  header.card-header 
+    header.card-header 
        h4.card-title Farmer One List
-    br
+       br
     nav
     #nav-tab.nav.nav-tabs(role='tablist')
        a#nav-profile-tab.nav-item.nav-link(href='/farmerOneRegistration') Register FarmerOne 
@@ -29,8 +29,7 @@ section#main
     table.table.table-bordered 
       thread 
              tr 
-               th First Name
-               th Last Name
+               th Full Name
                th Gender
                th uniqueId
                th NIN 
@@ -41,15 +40,17 @@ section#main
                th Update 
                th Delete
       tbody 
-          if farmerones.length 
-              each farmerone in farmerones 
+            if farmerOnes.length 
+               each farmerOne in farmerOnes 
                  tr 
-                     td # {farmerone.firstname + farmerone.lastname}
-                     td # {farmerone.NIN}
-                     td # {farmerone.gender}
-                     td # farmerone.phone
-                     td # {farmerone.wardname}
-                     td # {farmerone.residenceType}
+                     td # {farmerOne.firstName +" "+ farmerOne.lastName}
+                     td # {farmerOne.NIN}
+                     td # {farmerOne.gender}
+                     td # {farmerOne.phoneNumber}
+                     td # {farmerOne.periodOfStay}
+                     td # {farmerOne.uniqueId}
+                     td # {farmerOne.wardname}
+                     td # {farmerOne.residenceType}
 
                      td 
                         a 
@@ -60,7 +61,7 @@ section#main
                           button.btn.btn-danger.btn-block(type="submit") Delete 
 
 
-          .form-row 
+            .form-row 
               .col.form-group 
                        a(class='button', href='/agriculturalOfficerDashboard') Back        
     

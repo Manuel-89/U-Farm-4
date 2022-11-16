@@ -19,78 +19,92 @@ nav.navbar.navbar-expand-lg
 section#productUpload
   .container.justify-content-center
     h3.text-center Farmer-One-Registration
-    form.row-g-3(action="/register", method="post")
+    form.row-g-(action="/register", method="post")
       .row
         .col-md-6
           label.form-label(for="firstName") First Name
-          input.form-control#firstName(type="text")
+          input.form-control#firstName(name="firstName" type="text")
         .col-md-6
           label.form-label(for="lastName") Last Name
-          input.form-control#lastName(type="text")
+          input.form-control#lastName(name="lastName" type="text")
         div
           .row
             .col-md-4
               label.form-label(for="uniqueId") Unique Id
-              input.form-control#uniqueId(type="text")
+              input.form-control#uniqueId(name="uniqueId" type="number")
             .col-md-4
               label.form-label(for="NIN") NIN
-              input.form-control#NIN(type="text")
+              input.form-control#NIN(name="NIN" type="text")
             .col-md-4
               label.form-label(for="wardName") Ward Name
-              select#wardName.form-select
+              select#wardName.form-select(name="wardName")
                 option(selected) Choose...
-                option Massaja A.
-                option Massaja B.
-                option Massaja C.
-                option Massaja D.
+                option Massaja A
+                option Massaja B
+                option Massaja C
+                option Massaja D
           .row
             .col-md-4
               label.form-label(for="gender") Gender
-              select#gender.form-select
+              select#gender.form-select(name="gender")
                 option(selected) Choose...
-                option Male.
-                option Female.
-                option Other.
+                option Male
+                option Female
+                option Other
             .col-md-4
               label.form-label(for="phoneNumber") Phone Number
-              input.form-control#phoneNumber(type="text")
+              input.form-control#phoneNumber(name="phoneNumber" type="text")
             .col-md-4
               label.form-label(for="dateOfBirth") Date of birth
-              input.form-control#dateOfBirth(type="date")
+              input.form-control#dateOfBirth(name="dateOfBirth" type="date")
           .row
             .col-md-4
               label.form-label(for="activitiesUndertaken") Activities Undertaken
-              select#activitiesUndertaken.form-select
+              select#activitiesUndertaken.form-select(name="activitiesUndertaken")
                 option(selected) Choose...
                 option Weeding
-                option Harvesting.
-                option Planting.
-                option Value Addition.
+                option Harvesting
+                option Planting
+                option Value Addition
             .col-md-4
               label.form-label(for="residenceType") Residence Type
-              select#residenceType.form-select
+              select#residenceType.form-select(name="residenceType")
                 option(selected) Choose...
                 option Permanent
                 option Temporary
-            .col-md-4.py-4
-              .input-group
+            .col-md-4
                 label.form-label(for="periodOfStay") Period of stay
-                select#periodOfStay.form-select
+                select#periodOfStay.form-select(name="periodOfStay")
                   option(selected) Choose...
-                  option Massaja A.
-                  option Massaja B.
-                  option Massaja C.
-                  option Massaja D.
+                  option 1
+                  option 2
+                  option 3
+                  option 4
+                  option 5
+                  option 6
+                  option 7
+                  option 8
+                  option 9
+                  option 10
           .row
             .col-md-4
               label.form-label(for="registrationDate") Date of Registration
-              input.form-control#registrationDate(type="date")
-            .col-lg-8.py-4
+              input.form-control#registrationDate(name="registrationDate" type="date")
+            .col-md-4.py-4
               label.form-label(for="directions") Directions
-              input.form-control-lg#directions(type="text")
-        .row
-          .col-12.text-center.py-4
-            button.btn.btn-primary(type="submit") Register
+              input.form-control-lg#directions(name="directions" type="text")
+            .col-md-4
+              label.form-label(for="role") Role
+              select#role.form-select(name="role")
+                  option(selected) Choose...
+                  option Farmer One
+          .row
+            .col-md-4
+              label.form-label(for="password") Password
+              input.form-control#password(name="password" type="password")
+          .row
+            .col-12.text-center.py-4
+              button.btn.btn-primary(type="submit") Register
 section#footer
   .container.py-5.bg-grey.fluid
     .row

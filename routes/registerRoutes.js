@@ -19,7 +19,7 @@ router.post('/register', async (req,res) =>{
             await Registration.register(user, req.body.password, (error) => {
                 if (error){
                     throw error
-                } res.redirect ('/Account')
+                } res.redirect ('/')
             });
            
         }
@@ -36,14 +36,27 @@ router.get('/generalUser', (req,res) => {
 });
 router.post('/generalUser', (req,res) => {
     console.log(req.body);
+    res.redirect('/Account');
 });
 router.get('/registerFarmerOne', (req,res) => {
     res.render('farmerOneRegistration')
 });
 router.post('/registerFarmerOne', (req,res) => {
     console.log(req.body);
+    res.redirect('/registerFarmerOne');
 }); 
 
+router.get("/farmerOneList", async (req,res) => {
+    try {
+        let farmerOnes = await Registration.find({role: "farmerOne"})
+        res.render("farmerOneList",{farmerOnes:farmerOnes});
+    } catch (error) {
+        res.status(400).send("Unable to find farmer Ones in the Database");
+        console.log(error);
+        
+    }
+    
+})
 
 module.exports = router;
 

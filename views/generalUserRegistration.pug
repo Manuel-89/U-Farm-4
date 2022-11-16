@@ -18,7 +18,7 @@ nav.navbar.navbar-expand-lg
           a.nav-link(href="#") Account
 section#productUpload
   .container.justify-content-center
-    h3.text-center Registration
+    h3.text-center U-Registration
     form.row-g-3(action="/register", method="post")
       .row
         .col-md-6
@@ -40,9 +40,9 @@ section#productUpload
               label.form-label(for="gender") Gender
               select#Gender.form-select
                 option(selected) Choose...
-                option Male.
-                option Female.
-                option Other.
+                option Male
+                option Female
+                option Other
             .col-md-4
               label.form-label(for="phoneNumber") Phone Number
               input.form-control#phoneNumber(type="phone")
@@ -53,9 +53,18 @@ section#productUpload
             .col-md-4
               label.form-label(for="registrationDate") Date of Registration
               input.form-control#productUploadDate(type="date")
-            .col-lg-8.py-4
+            .col-lg-4.py-4
               label.form-label(for="directions") Directions
               input.form-control-lg#directions(type="text")
+            .col-md-4
+              label.form-label(for="password") Password
+              input.form-control#productUploadDate(type="password")
+        .row
+           .col-md-4
+              label.form-label(for="role") Role
+              select#Gender.form-select
+                option(selected) Choose...
+                option User
         .row
           .col-12.text-center.py-4
             button.btn.btn-primary(type="submit") Register
