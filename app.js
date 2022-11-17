@@ -17,8 +17,9 @@ const Registration = require('./models/User')
 const registrationRoutes = require('./routes/registerRoutes');
 const produceRoutes = require('./routes/produceRoutes')
 const agriculturalOfficerRoutes = require('./routes/agriculturalOfficerRoutes')
+const oauthRoutes = require('./routes/oauthRoutes')
 
-// // Instantiations
+// Instantiations
 const app = express();
 
 
@@ -64,7 +65,7 @@ passport.deserializeUser(Registration.deserializeUser());
 app.use('/', registrationRoutes)
 app.use('/', produceRoutes)
 app.use('/', agriculturalOfficerRoutes)
-
+app.use('/', oauthRoutes)
 
 // app.use((req,res,next) => {
 //   console.log ("A new request received at " + Date.now());

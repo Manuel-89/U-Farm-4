@@ -18,6 +18,8 @@ nav.navbar.navbar-expand-lg
         a.nav-link(href="#") Products
        li.nav-item
         a.nav-link(href="#") Account
+form(action="/logout", method="post") 
+   button.btn.btn-success(type="submit") Logout
 section#login
     .container.justify-content-center.align-items-center.inner-row.py-5
       h3.text-center Login
@@ -25,18 +27,18 @@ section#login
     form#userLoginForm(action="/login" name="login" method="POST")
     .col-md-6.mx-auto
       label.form-label(for="uniqueId") Unique Id
-      input.form-control#uniqueid(name="uniqueId" type="text")
+      input.form-control#uniqueid(name="uniqueId" type="text" value="uniqueId")
     .col-md-6.mx-auto
       label.form-label(for="password") Password
-      input.form-control#password(name="password" type="password")
+      input.form-control#password(name="password" type="password" value="password")
     .col-md-6.mx-auto
       label.form-label(for="inputState") Role
       select#inputState.form-select
        option(selected) Choose...
-       option Urban Farmer.
-       option Farmer One.
-       option Agricultural Officer.
-       option User.
+       option(value="urbanFarmer") Urban Farmer
+       option(value="farmerOne") Farmer One
+       option(value="agriculturalOfficer") Agricultural Officer
+       option(value="user") User
     .row
     .col-12.text-center.py-4
       button.btn.btn-primary(type="submit") Login

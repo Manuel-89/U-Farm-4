@@ -18,64 +18,70 @@ nav.navbar.navbar-expand-lg
           a.nav-link(href="#") Account
 section#productUpload
   .container.justify-content-center
-    h3.text-center Product Upload Form
-    form.row.g-3(action="/productupload", method="post")
+    h3.text-center Product Upload Form #{currentUser.fistName}
+    form.row.g-3(action="/productupload", enctype =" multipart/form-data" method="post")
       .row
         .col-md-6
           label.form-label(for="firstName") First Name
-          input.form-control#firstName(type="text")
+          input.form-control#firstName(type="text" value="firstName")
         .col-md-6
           label.form-label(for="lastName") Last Name
-          input.form-control#lastName(type="text")
+          input.form-control#lastName(type="text" value="lastName")
       .row
         .col-md-6
-          label.form-label(for="uniqueId") Unique Id
-          input.form-control#uniqueId(type="text")
+          label.form-label(for="supplierId") Supplier Id
+          select#form-control.supplierId(name="supplierId")
+             each urbanFarmer in urbanFarmers
+               option(value=urbanFarmer._id) #{urbanFarmer.firstName +"" + urbanFarmer.lastName}
+          input.form-control#supplierId(name="supplierId" type="text" value="supplierId")
         .col-md-6
           label.form-label(for="NIN") NIN
-          input.form-control#NIN(type="text")
+          input.form-control#NIN(type="text" value="NIN")
       .row
         .col-md-6
           label.form-label(for="productName") Product Name
-          input.form-control#productName(type="text")
+          input.form-control#productName(type="text" value="productName")
         .col-md-6
           label.form-label(for="productQuantity") Product Quantity
-          input.form-control#productQuantity(type="text")
+          input.form-control#productQuantity(type="text" value="productQuantity")
       .row
         .col-md-4
           label.form-label(for="price") Price
-          input.form-control#price(type="text", placeholder)
+          input.form-control#price(type="text", placeholder="" value="price")
         .col-md-4
-          label.form-label(for="type") Produce Type
+          label.form-label(for="produceType") Produce Type
           select#produceType.form-select
             option(selected) Choose...
-            option Organic
-            option Non-Organic
+            option(value="Organic") Organic
+            option(value="Non-Organic") Non-Organic
         .col-md-4
-          label.form-label(for="inputState") Ward Name
-          select#inputState.form-select
-            option(selected) Choose...
-            option Massaja A.
-            option Massaja B.
-            option Massaja C.
-            option Massaja D.
-        div.
+          label.form-label(for="wardName") Ward Name
+          select#wardName.form-select
+                if currentUser 
+                    option(value = currentUser._id) #{currentUser.ward}
+
+        //-     option(selected) Choose...
+        //-     option Massaja A
+        //-     option Massaja B
+        //-     option Massaja C
+        //-     option Massaja D
+        //- div.
           
           
         .row
           .col-md-4.py-4
             .input-group
               label.input-group-text(for="productImage") upload
-              input.form-control#productImage(type="file")
+              input.form-control#productImage(type="file" value="productImage")
           .col-md-4
-            label.form-label(for="type") Produce Type
+            label.form-label(for="type") Delivery Mode
             select#produceType.form-select
               option(selected) Choose...
-              option Organic
-              option Non-Organic
+              option(value="InStorePickUp") Pick-Up
+              option(value="homeDelivery") Delivery
           .col-md-4
             label.form-label(for="productUploadDate") Date of Upload
-            input.form-control#productUploadDate(type="date")
+            input.form-control#productUploadDate(type="date" value="productUploadDate")
         .col-12.text-center.py-4
           button.btn.btn-primary(type="submit") Upload
 section#footer

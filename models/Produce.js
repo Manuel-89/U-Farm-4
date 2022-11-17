@@ -34,9 +34,19 @@ const produceSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    supplierId:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Registration",
+        required: true
+    },
     image:{
         type: String,
         required: true
+    },
+    status: {
+        type: String,
+        default:"Pending",
+        enum:["Pending", "Approved"]
     }
 
 });

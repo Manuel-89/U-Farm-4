@@ -41,20 +41,20 @@ section#main
       tbody 
             if farmerOnes.length 
                each farmerOne in farmerOnes 
-                 tr 
-                     td #{farmerOne.firstName +" "+ farmerOne.lastName}
-                     td #{farmerOne.NIN}
-                     td #{farmerOne.gender}
-                     td #{farmerOne.phoneNumber}
-                     td #{farmerOne.periodOfStay}
-                     td #{farmerOne.uniqueId}
-                     td #{farmerOne.wardName}
+                  tr 
+                       td #{farmerOne.firstName +" "+ farmerOne.lastName}
+                       td #{farmerOne.NIN}
+                       td #{farmerOne.gender}
+                       td #{farmerOne.phoneNumber}
+                       td #{farmerOne.periodOfStay}
+                       td #{farmerOne.uniqueId}
+                       td #{farmerOne.wardName}
             
-                     td 
-                         a 
+                       td 
+                          a 
                             button.btn.btn-primary.btn-block(href='/farmerOne/update'+farmerOne._id) Update 
-                     td 
-                         form(method="post" action='/farmerOne/delete')
+                       td 
+                            form(method="post" action='/farmerOne/delete')
                             input(type="hidden", placeholder="", name="id", value=farmerOne._id)  
                             button.btn.btn-danger.btn-block(type="submit") Delete
     div.form-row 
