@@ -15,9 +15,10 @@ const Registration = require('./models/User')
 
 // Importing Route files
 const registrationRoutes = require('./routes/registerRoutes');
-const produceRoutes = require('./routes/produceRoutes')
-const agriculturalOfficerRoutes = require('./routes/agriculturalOfficerRoutes')
-const oauthRoutes = require('./routes/oauthRoutes')
+const produceRoutes = require('./routes/produceRoutes');
+const agriculturalOfficerRoutes = require('./routes/agriculturalOfficerRoutes');
+const oauthRoutes = require('./routes/oauthRoutes');
+const homeRoutes = require('./routes/homepageRoutes');
 
 // Instantiations
 const app = express();
@@ -47,13 +48,8 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/public/uploads', express.static(__dirname + '/public/uploads'));
 app.use(expressSession);
-// app.use('expressSession',({
-//   secret: 's0Ug@2022',
-//   resave:false,
-//   saveUninitialized: true,
-//   cookie: {secure: true}
-// }) );
 
+ 
 // Passport Config & Middleware
 app.use(passport.initialize());
 app.use(passport.session());
@@ -66,7 +62,7 @@ app.use('/', registrationRoutes)
 app.use('/', produceRoutes)
 app.use('/', agriculturalOfficerRoutes)
 app.use('/', oauthRoutes)
-
+app.use('/', homeRoutes)
 // app.use((req,res,next) => {
 //   console.log ("A new request received at " + Date.now());
 //   next();

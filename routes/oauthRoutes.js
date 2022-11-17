@@ -7,6 +7,7 @@ router.get('/login', (req, res) => {
 });
 
 router.post('/login', passport.authenticate("local", { failureRedirect: "/login"}), (req,res) => {
+    console.log("This is the current user", req.session.user);
     res.redirect("/register");
 });
 

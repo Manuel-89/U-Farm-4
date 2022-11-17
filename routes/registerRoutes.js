@@ -19,7 +19,7 @@ router.post('/register', async (req,res) =>{
             await Registration.register(user, req.body.password, (error) => {
                 if (error){
                     throw error
-                } res.redirect ('/')
+                } res.redirect ('/register')
             });
            
         }
@@ -45,6 +45,14 @@ router.post('/registerFarmerOne', (req,res) => {
     console.log(req.body);
     res.redirect('/registerFarmerOne');
 }); 
+router.get('/registerAgricOfficer', (req,res) => {
+    res.render('agriculturalOfficerRegistration')
+});
+router.post('/registerAgricOfficer', (req,res) => {
+    console.log(req.body);
+    res.redirect('/agriculturalOfficerRegistration');
+}); 
+
 
 router.get("/farmerOneList", async (req,res) => {
     try {

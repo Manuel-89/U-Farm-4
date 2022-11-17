@@ -11,15 +11,15 @@ nav.navbar.navbar-expand-lg
     .collapse.navbar-collapse#navbarScroll
       ul.navbar-nav.ms-auto.my-2.my-lg-0
         li.nav-item
-          a.nav-link(href="#") Home
+          a.nav-link(href="#")
         li.nav-item
-          a.nav-link.m-auto(href="#") Products
+          a.nav-link.m-auto(href="#") 
         li.nav-item
-          a.nav-link(href="#") Account
+          a.nav-link(href="#") 
 section#main
-  .container.py-5
+
     header.card-header 
-       h4.card-title Farmer One List
+       h4.card-title Produce List
        br
     nav
     #nav-tab.nav.nav-tabs(role='tablist')
@@ -28,42 +28,40 @@ section#main
     br
     table.table.table-bordered 
       thread 
-             tr 
-               th Full Name
-               th Gender
-               th uniqueId
-               th NIN 
+             tr      
+               th Supplier Id
+               th Produce Name
+               th Produce Quantity
+               th Price
+               th Produce Upload date 
+               th Mode of delivery 
                th Ward
-               th Phone Number 
-               th Period of stay
-               th Residence Type 
+               th Product Image          
                th Update 
                th Delete
       tbody 
-            if farmerOnes.length 
-               each farmerOne in farmerOnes 
-                 tr 
-                     td # {farmerOne.firstName +" "+ farmerOne.lastName}
-                     td # {farmerOne.NIN}
-                     td # {farmerOne.gender}
-                     td # {farmerOne.phoneNumber}
-                     td # {farmerOne.periodOfStay}
-                     td # {farmerOne.uniqueId}
-                     td # {farmerOne.wardname}
-                     td # {farmerOne.residenceType}
-
-                     td 
-                        a 
-                          button.bt.btn-primary.btn-block(href='/farmerOne/update'+ farmerOne._id) Update 
-                     td 
-                        form(method="post" action='/farmerOne/delete')
-                          input(type="hidden", placeholder="", name="id", value=farmerOne._id)  
-                          button.btn.btn-danger.btn-block(type="submit") Delete 
-
-
-            .form-row 
-              .col.form-group 
-                       a(class='button', href='/agriculturalOfficerDashboard') Back        
+            if products.length 
+               each product in products 
+                  tr 
+                       td #{product.supplierId}
+                       td #{product.produceName}
+                       td #{product.produceQuantity}
+                       td #{product.price}
+                       td #{product.productUploadDate}
+                       td #{product.deliveryMode}
+                       td #{product.wardName}
+                       td
+                          img(src="/"+product.productImage, alt="image" width="150px" Height="170px")
+                       td 
+                          a 
+                            button.btn.btn-primary.btn-block(href='/product/update'+product._id) Update 
+                       td 
+                            form(method="post" action='/product/delete')
+                            input(type="hidden", placeholder="", name="id", value=product._id)  
+                            button.btn.btn-danger.btn-block(type="submit") Delete
+    div.form-row 
+        div.col.form-group 
+          a(class='button', href='/agriculturalOfficerDashboard') Back        
     
     
     

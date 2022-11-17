@@ -31,13 +31,13 @@ section#urbanFarmerRegistration
           .row
             .col-md-4
               label.form-label(for="uniqueId") Unique Id
-              input.form-control#uniqueId(name="uniqueId" type="number")
+              input.form-control#uniqueId(name="uniqueId" type="number" value="uniqueId")
             .col-md-4
               label.form-label(for="NIN") NIN
-              input.form-control#NIN(name="NIN" type="text")
+              input.form-control#NIN(name="NIN" type="text" value="NIN")
             .col-md-4
               label.form-label(for="wardName") Ward Name
-              select#inputState.form-select(name = "wardName")
+              select#inputState.form-select(name="wardName" value="wardName")
                 option(selected) Choose...
                 option Massaja A
                 option Massaja B
@@ -46,21 +46,21 @@ section#urbanFarmerRegistration
           .row
             .col-md-4
               label.form-label(for="gender") Gender
-              select#gender.form-select(name="gender") 
+              select#gender.form-select(name="gender" value="gender") 
                 option(selected) Choose...
-                option Male
-                option Female
-                option Other
+                option(value="male") Male
+                option(value="female") Female
+                option(value="Other") Other
             .col-md-4
               label.form-label(for="phoneNumber") Phone Number
-              input.form-control#productName(name = "phoneNumber" type="text")
+              input.form-control#productName(name="phoneNumber" type="text" value="phoneNumber")
             .col-md-4
               label.form-label(for="dateOfBirth") Date of birth
-              input.form-control#dateOfBirth(name="dateOfBirth" type="date")
+              input.form-control#dateOfBirth(name="dateOfBirth" type="date" value="dateOfBirth")
           .row
             .col-md-4
               label.form-label(for="activitiesUndertaken") Activities Undertaken
-              select#activitiesUndertaken.form-select(name="activitiesUndertaken")
+              select#activitiesUndertaken.form-select(name="activitiesUndertaken" value="")
                 option(selected) Choose...
                 option Weeding
                 option Harvesting
@@ -68,7 +68,7 @@ section#urbanFarmerRegistration
                 option Value Addition
             .col-md-4
               label.form-label(for="registrationDate") Date of Registration
-              input.form-control#registrationDate(name="registrationDate" type="date")
+              input.form-control#registrationDate(name="registrationDate" type="date" value="")
             .col-md-6.mx-auto
               label.form-label(for="role") Role
               select#role.form-select(name="role")

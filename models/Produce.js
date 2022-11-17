@@ -3,30 +3,22 @@ const mongoose = require('mongoose');
 
 
 const produceSchema = new mongoose.Schema({
-    firstName:{
-        type: String,
-        required: true,
-        trim: true
-    },
-    lastName:{
-        type: String,
-        required: true,
-        trim: true
-    },
     uniqueId:{
         type: String,
-        required: true
+        required: false
     },
-    NIN:{
-         type: String,
-         required: true
-    },
-    wardName:{
+      wardName:{
         type: String,
         required: true
     },
-    
-    uploadDate:{
+    produceName:{
+        type: String,
+        required: true
+    },
+    deliveryMode:{
+       type: String
+    },
+    productUploadDate:{
         type: Date,
         required: true
     },
@@ -34,14 +26,18 @@ const produceSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    produceQuantity:{
+        type: Number,
+        required: true
+    },
     supplierId:{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Registration",
         required: true
     },
-    image:{
+    productImage:{
         type: String,
-        required: true
+    
     },
     status: {
         type: String,
