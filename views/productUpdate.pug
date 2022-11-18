@@ -46,35 +46,29 @@ section#productUpload
       .row
         .col-md-6
           label.form-label(for="produceName") Produce Name
-          input.form-control#produceName(name="produceName" type="text" value="")
+          input.form-control#produceName(name="produceName" type="text" value=product.produceName)
         .col-md-6
           label.form-label(for="produceQuantity") Produce Quantity
-          input.form-control#produceQuantity(name="produceQuantity" type="text" value="")
+          input.form-control#produceQuantity(name="produceQuantity" type="text" value=product.produceQuantity)
       .row
         .col-md-4
           label.form-label(for="price") Price
-          input.form-control#price(type="text", placeholder="" name="price" value="")
-        .col-md-4
-          label.form-label(for="produceType") Produce Type
-          select#produceType.form-select(name="produceType")
-            option(selected) Choose...
-            option(value="Organic") Organic
-            option(value="Non-Organic") Non-Organic
+          input.form-control#price(type="text", placeholder="" name="price" value=product.price)
         .col-md-4
           label.form-label(for="wardName") Ward Name
           select#wardName.form-select(name="wardName")
                     //- if currentUser 
                           //- option(value="") Choose...
                           //- option(value = currentUser._id) #{currentUser.wardName}
-                    if urbanFarmers.length 
-                          each urbanFarmer in urbanFarmers
-                            option(value = urbanFarmer._id) #{urbanFarmer.wardName}
+                    //- if urbanFarmers.length 
+                    //-       each urbanFarmer in urbanFarmers
+                    //-         option(value = urbanFarmer._id) #{urbanFarmer.wardName}
 
-        //-     option(selected) Choose...
-        //-     option Massaja A
-        //-     option Massaja B
-        //-     option Massaja C
-        //-     option Massaja D
+            option(selected) Choose...
+            option(value="Massaja A" selected = product.wardName === "Masajja A") Massaja A
+            option(value="Massaja B" selected = product.wardName === "Masajja B") Massaja B
+            option(value="Masajja C" selected = product.wardName === "Masajja C") Massaja C
+            option(value="Massaja D" selected = product.wardName === "Masajja D") Massaja D
         //- div.
           
           
@@ -83,16 +77,14 @@ section#productUpload
             label.form-label(for="deliveryMode") Delivery Mode
             select#deliveryMode.form-select(name="deliveryMode")
               option(selected) Choose...
-              option(value="InStorePickUp") Pick-Up
-              option(value="Home Delivery") Delivery
+              option(value="InStorePickUp" selected = product.deliveryMode === "InStorePickUp") Pick-Up
+              option(value="Home Delivery" selected = product.deliveryMode === "Home Delivery") Delivery
           .col-md-4
             label.form-label(for="productUploadDate") Date of Upload
-            input.form-control#productUploadDate(type="date" name="productUploadDate")
-          .col-md-4
-              label.form-label(for="productImage") upload
-              input.form-control#productImage(type="file" name="productImage")
-        .col-12.text-center.py-4
-          button.btn.btn-primary(type="submit") Upload
+            input.form-control#productUploadDate(type="date" name="productUploadDate" value=product.productUploadDate)
+          
+      .col-12.text-center.py-4
+          button.btn.btn-primary(type="submit") Update
 section#footer
   .container.py-5.bg-grey.fluid
     .row

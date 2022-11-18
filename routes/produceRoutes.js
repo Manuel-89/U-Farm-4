@@ -96,7 +96,7 @@ router.get('/produceList', async (req,res) => {
     
 })
 
-// updating produce
+// updating produce 
 router.get('/produce/update/:id', async (req,res) =>{
     try {
         const updateProduct = await Produce.findOne({_id:req.params.id});
@@ -109,18 +109,28 @@ router.get('/produce/update/:id', async (req,res) =>{
 router.get('/produce/update/', async (req,res) =>{
     try {
         await Produce.findOneAndUpdate({_id:req.query.id}, req.body);
-        res.redirect('/produceList');
+        res.redirect('back');
     } catch (error) {
         res.status(400).send('unable to update produce');
     }
 
 })
-
+// delete product
+router.post('/produce/delete', async (req,res) => {
+    try {
+        await Produce.deleteOne({_id:req.body.id});
+        res.redirect('back');    
+    } catch (error) {
+        res.status(400).send("product could not be deleted");
+    }
+    
+})
 
 router.post('/produceList', (req,res) => {
     console.log(req.body)
     res.redirect("/produceList")
 })
+
 
 
 

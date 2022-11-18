@@ -1,6 +1,6 @@
 meta(charset="utf-8")
 meta(name="viewport", content="width=device-width,initial-scale=1")
-title Farmer One List
+title Farmer One Dashboard
 link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi", crossorigin="anonymous")
 link(href="./main.css", rel="stylesheet")
 nav.navbar.navbar-expand-lg
@@ -19,11 +19,14 @@ nav.navbar.navbar-expand-lg
 section#main
 
     header.card-header 
-       h4.card-title Produce List
+       h4.card-title Farmer One Dashboard
        br
     nav
     #nav-tab.nav.nav-tabs(role='tablist')
-       a#nav-profile-tab.nav-item.nav-link(href='/farmerOneRegistration') Register FarmerOne 
+       a#nav-profile-tab.nav-item.nav-link(href='/urbanFarmerReg') Register UrbanFarmer
+       a#nav-profile-tab.nav-item.nav-link(href='/produceList') View Produce list
+       a#nav-profile-tab.nav-item.nav-link(href='/actvitiesUndertakenList') View Activities list 
+       a#nav-profile-tab.nav-item.nav-link(href='/bookings') View bookings/orders 
     #nav-tabContent.tab-content   
     br
     table.table.table-bordered 

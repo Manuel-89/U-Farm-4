@@ -8,7 +8,16 @@ router.get('/login', (req, res) => {
 
 router.post('/login', passport.authenticate("local", { failureRedirect: "/login"}), (req,res) => {
     console.log("This is the current user", req.session.user);
-    res.redirect("/register");
+    if (req.user.role == "urbanFarmer"){
+        res.redirect('/urbanFarmerDashboard')
+    } else if (req.user.role == "farmerOne"){
+        res.redirect('farmerOneDashboard')
+    } else if (req.user.role == "agriculturalOfficer"){
+        res.redirect('/agriculturalOfficerDashboard')
+    } else (
+        res.send("Sorry, either your session has expired or you are not a registered user")
+    )
+    
 });
 
 router.post('/logout', (req,res) => {
