@@ -1,12 +1,21 @@
 const express = require('express');
 const router = express.Router();
+const connectEnsureLogin = require('connect-ensure-login');
 
-router.get('/home', (req, res) => {
-    res.render("Homepage");
-});
+// Import User Model
+const Registraion = require('../models/User');
+const Produce = require('../models/Produce');
 
-router.post('/home', (req,res) => {
-    res.redirect("/home");
+
+// Urban Farmer Dashboard
+router.get('/urbanFarmerDashboard',connectEnsureLogin.ensureLoggedIn(), (req,res) =>{
+    req.session.user = req.user;
+    if (req.user.role === "urbanFarmer"){
+       res.render("urbanFarmerDashboard");
+    } else {
+       res.send("This page is accessed by only the Urban Farmer");
+    }
+    
 });
 
 

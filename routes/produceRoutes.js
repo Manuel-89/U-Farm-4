@@ -88,7 +88,8 @@ router.post('/productUpload',upload.single('productImage'), async (req,res) =>{
 // Fetching all products
 router.get('/produceList', async (req,res) => {
     try {
-        let products = await Produce.find();
+        const sort = { _id: -1 };
+        let products = await Produce.find().limit;
         res.render("produceList", {products:products});    
     } catch (error) {
         res.status(400).send("Unable to get product list");
@@ -100,7 +101,7 @@ router.get('/produceList', async (req,res) => {
 router.get('/produce/update/:id', async (req,res) =>{
     try {
         const updateProduct = await Produce.findOne({_id:req.params.id});
-        res.render('produceUpdate', {product:productUpdate});
+        res.render('productUpdate', {product:productUpdate});
     } catch (error) {
         res.status(400).send('unable to update produce');
     }

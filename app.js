@@ -16,9 +16,11 @@ const Registration = require('./models/User')
 // Importing Route files
 const registrationRoutes = require('./routes/registerRoutes');
 const produceRoutes = require('./routes/produceRoutes');
-const agriculturalOfficerRoutes = require('./routes/agriculturalOfficerRoutes');
 const oauthRoutes = require('./routes/oauthRoutes');
 const homeRoutes = require('./routes/homepageRoutes');
+const farmerOneRoutes = require('./routes/farmerOneRoutes')
+const agriculturalOfficerRoutes = require('./routes/agriculturalOfficerRoutes')
+const urbanFarmerRoutes = require('./routes/urbanFarmerRoutes')
 
 // Instantiations
 const app = express();
@@ -63,6 +65,9 @@ app.use('/', produceRoutes)
 app.use('/', agriculturalOfficerRoutes)
 app.use('/', oauthRoutes)
 app.use('/', homeRoutes)
+app.use('/', farmerOneRoutes)
+app.use('/', urbanFarmerRoutes)
+
 // app.use((req,res,next) => {
 //   console.log ("A new request received at " + Date.now());
 //   next();
