@@ -89,7 +89,7 @@ router.post('/productUpload',upload.single('productImage'), async (req,res) =>{
 router.get('/produceList', async (req,res) => {
     try {
         const sort = { _id: -1 };
-        let products = await Produce.find().limit;
+        let products = await Produce.find().sort({$natural: -1});
         res.render("produceList", {products:products});    
     } catch (error) {
         res.status(400).send("Unable to get product list");
@@ -107,7 +107,7 @@ router.get('/produce/update/:id', async (req,res) =>{
     }
 
 })
-router.get('/produce/update/', async (req,res) =>{
+router.post('/produce/update/', async (req,res) =>{
     try {
         await Produce.findOneAndUpdate({_id:req.query.id}, req.body);
         res.redirect('back');
@@ -125,6 +125,46 @@ router.post('/produce/delete', async (req,res) => {
         res.status(400).send("product could not be deleted");
     }
     
+})
+
+// approving produce 
+router.get('/produce/approve/:id', async (req,res) =>{
+    try {
+        const updateProduct = await Produce.findOne({_id:req.params.id});
+        res.render('productList', {product:productUpdate});
+    } catch (error) {
+        res.status(400).send('unable to update produce');
+    }
+
+})
+router.post('/produce/approve/', async (req,res) =>{
+    try {
+        await Produce.findOneAndUpdate({_id:req.query.id}, req.body);
+        res.redirect('/produceList');
+    } catch (error) {
+        res.status(400).send('unable to update produce');
+    }
+
+})
+
+// Availaility of  produce 
+router.get('/produce/available/:id', async (req,res) =>{
+    try {
+        const sellProduct = await Produce.findOne({_id:req.params.id});
+        res.render('approvedProductList', {product:sellProduct});
+    } catch (error) {
+        res.status(400).send('unable to update produce');
+    }
+
+})
+router.post('/produce/available/', async (req,res) =>{
+    try {
+        await Produce.findOneAndUpdate({_id:req.query.id}, req.body);
+        res.redirect('/approvedProductList');
+    } catch (error) {
+        res.status(400).send('unable to view produce list');
+    }
+
 })
 
 router.post('/produceList', (req,res) => {
