@@ -33,11 +33,11 @@ section#productUpload
         .col-md-6
           label.form-label(for="supplierId") Supplier Id
           select#supplierId.form-select(name="supplierId")
-              //- if currentUser   
-                          //-  option(value=currentUser._id) #{currentUser.firstName +" "+ currentUser.lastName}
-              if urbanFarmers.length 
-                    each urbanFarmer in urbanFarmers   
-                      option(value=urbanFarmer._id) #{urbanFarmer.firstName +"" + urbanFarmer.lastName}
+              if currentUser   
+                           option(value=currentUser._id) #{currentUser.firstName +" "+ currentUser.lastName}
+              //- if urbanFarmers.length 
+              //-       each urbanFarmer in urbanFarmers   
+              //-         option(value=urbanFarmer._id) #{urbanFarmer.firstName +"" + urbanFarmer.lastName}
           
         //-   //- input.form-control#supplierId(name="supplierId" type="text" value="")
         //- //- .col-md-6
@@ -57,18 +57,17 @@ section#productUpload
         .col-md-4
           label.form-label(for="wardName") Ward Name
           select#wardName.form-select(name="wardName")
-                    //- if currentUser 
-                          //- option(value="") Choose...
-                          //- option(value = currentUser._id) #{currentUser.wardName}
-                    //- if urbanFarmers.length 
-                    //-       each urbanFarmer in urbanFarmers
-                    //-         option(value = urbanFarmer._id) #{urbanFarmer.wardName}
-
-            option(selected) Choose...
-            option(value="Massaja A" selected = product.wardName === "Masajja A") Massaja A
-            option(value="Massaja B" selected = product.wardName === "Masajja B") Massaja B
-            option(value="Masajja C" selected = product.wardName === "Masajja C") Massaja C
-            option(value="Massaja D" selected = product.wardName === "Masajja D") Massaja D
+                    if currentUser 
+                        option(value="") Choose...
+                        option(value = currentUser._id) #{currentUser.wardName}
+          //- if urbanFarmers.length 
+              //-         each urbanFarmer in urbanFarmers
+                //-           option(value = urbanFarmer._id) #{urbanFarmer.wardName}
+          //- option(selected) Choose...
+          //- option(value="Massaja A" selected = product.wardName === "Masajja A") Massaja A
+          //- option(value="Massaja B" selected = product.wardName === "Masajja B") Massaja B
+          //- option(value="Masajja C" selected = product.wardName === "Masajja C") Massaja C
+          //- option(value="Massaja D" selected = product.wardName === "Masajja D") Massaja D
         //- div.
           
           

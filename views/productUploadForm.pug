@@ -33,11 +33,11 @@ section#productUpload
         .col-md-6
           label.form-label(for="supplierId") Supplier Id
           select#supplierId.form-select(name="supplierId")
-              //- if currentUser   
-                          //-  option(value=currentUser._id) #{currentUser.firstName +" "+ currentUser.lastName}
-              if urbanFarmers.length 
-                    each urbanFarmer in urbanFarmers   
-                      option(value=urbanFarmer._id) #{urbanFarmer.firstName +"" + urbanFarmer.lastName}
+              if currentUser   
+                           option(value=currentUser._id) #{currentUser.firstName +" "+ currentUser.lastName}
+              //- if urbanFarmers.length 
+              //-       each urbanFarmer in urbanFarmers   
+              //-         option(value=urbanFarmer._id) #{urbanFarmer.firstName +"" + urbanFarmer.lastName}
           
         //-   //- input.form-control#supplierId(name="supplierId" type="text" value="")
         //- //- .col-md-6

@@ -37,9 +37,9 @@ section#main
                th Mode of delivery 
                th Ward
                th Availability
-               th Status     
                th Product Image     
                th Update 
+               th Availability
                th Delete
       tbody 
             if products.length 
@@ -55,12 +55,12 @@ section#main
                        td #{product.wardName}
                        td #{product.availability}
                        td #{product.status}
-                       td
+                       td 
                           img(src="/"+product.productImage, alt="image" width="150px" Height="170px")
                        td 
                           a.btn.btn-primary.btn-block(href='/produce/update/'+product._id) Update 
                        td 
-                          a.btn.btn-secondary.btn-block(href='/produce/update/'+product._id) Approve    
+                          a.btn.btn-secondary.btn-block(href='/produce/approve/'+product._id) Change Status    
                        td 
                             form(method="post" action='/produce/delete')
                             input(type="hidden", placeholder="", name="id", value=product._id)  

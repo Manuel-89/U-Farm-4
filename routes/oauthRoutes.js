@@ -11,7 +11,7 @@ router.post('/login', passport.authenticate("local", { failureRedirect: "/login"
     if (req.user.role == "urbanFarmer"){
         res.redirect('/urbanFarmerDashboard')
     } else if (req.user.role == "farmerOne"){
-        res.redirect('farmerOneDashboard')
+        res.redirect('/farmerOneDashboard')
     } else if (req.user.role == "agriculturalOfficer"){
         res.redirect('/agriculturalOfficerDashboard')
     } else (
@@ -24,7 +24,7 @@ router.post('/logout', (req,res) => {
      if(req.session) {
         req.session.destroy(function(error) {
             if (error){
-                res.status(400).send("Unable to logout")
+                res.status(400).send("Unsuccessful logout")
             }
             else{
                 return res.redirect('/login');

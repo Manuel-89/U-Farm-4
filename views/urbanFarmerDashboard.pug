@@ -16,6 +16,8 @@ nav.navbar.navbar-expand-lg
           a.nav-link.m-auto(href="#") 
         li.nav-item
           a.nav-link(href="#") 
+        li.nav-item 
+              a.btn.btn-primary.btn-block(href="/logout") LogOut
 section#main
 
     header.card-header 
@@ -23,46 +25,47 @@ section#main
        br
     nav
     #nav-tab.nav.nav-tabs(role='tablist')
-       a#nav-profile-tab.nav-item.nav-link(href='/productUploadForm') Upload Produce/Products 
+       a#nav-profile-tab.nav-item.nav-link(href='/productUpload') Upload Produce/Products 
        a#nav-profile-tab.nav-item.nav-link(href='/produceList') View Produce List 
-     #nav-tabContent.tab-content   
+        a#nav-profile-tab.nav-item.nav-link(href='/logout') LogOut
+    #nav-tabContent.tab-content   
     br
-    table.table.table-bordered 
-      thread 
-             tr      
-               th Supplier Id
-               th Produce Name
-               th Produce Quantity
-               th Price
-               th Produce Upload date 
-               th Mode of delivery 
-               th Ward
-               th Product Image          
-               th Update 
-               th Delete
-      tbody 
-            if products.length 
-               each product in products 
-                  tr 
-                       td #{product.supplierId}
-                       td #{product.produceName}
-                       td #{product.produceQuantity}
-                       td #{product.price}
-                       td #{product.productUploadDate}
-                       td #{product.deliveryMode}
-                       td #{product.wardName}
-                       td
-                          img(src="/"+product.productImage, alt="image" width="150px" Height="170px")
-                       td 
-                          a 
-                            button.btn.btn-primary.btn-block(href='/produce/update/'+product._id) Update 
-                       td 
-                            form(method="post" action='/produce/delete')
-                            input(type="hidden", placeholder="", name="id", value=product._id)  
-                            button.btn.btn-danger.btn-block(type="submit") Delete
+    //- table.table.table-bordered 
+    //-   thread 
+    //-          tr      
+    //-            th Supplier Id
+    //-            th Produce Name
+    //-            th Produce Quantity
+    //-            th Price
+    //-            th Produce Upload date 
+    //-            th Mode of delivery 
+    //-            th Ward
+    //-            th Product Image          
+    //-            th Update 
+    //-            th Delete
+    //-   tbody 
+    //-         if products.length 
+    //-            each product in products 
+    //-               tr 
+    //-                    td #{product.supplierId}
+    //-                    td #{product.produceName}
+    //-                    td #{product.produceQuantity}
+    //-                    td #{product.price}
+    //-                    td #{product.productUploadDate}
+    //-                    td #{product.deliveryMode}
+    //-                    td #{product.wardName}
+    //-                    td
+    //-                       img(src="/"+product.productImage, alt="image" width="150px" Height="170px")
+    //-                    td 
+    //-                       a 
+    //-                         button.btn.btn-primary.btn-block(href='/produce/update/'+product._id) Update 
+    //-                    td 
+    //-                         form(method="post" action='/produce/delete')
+    //-                         input(type="hidden", placeholder="", name="id", value=product._id)  
+    //-                         button.btn.btn-danger.btn-block(type="submit") Delete
     div.form-row 
         div.col.form-group 
-          a(class='button', href='/agriculturalOfficerDashboard') Back        
+          a(class='button', href='/urbanFarmerDashboard') Back        
     
     
     

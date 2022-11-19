@@ -32,24 +32,24 @@ router.get('/productUpload',async (req,res) =>{
 //     res.redirect('/productUpload')
 // })
 
-// router.get('/productUpload', connectEnsureLogin.ensureLoggedIn(), (req,res)=> {
-//     console.log("This is the current user", req.session.user);
-//     res.render("productUploadForm", {currentUser:req.session.user});
-// });
-// router.post('/productUpload', connectEnsureLogin.ensureLoggedIn(),upload.single('productImage'), async (req,res) =>{
-//     console.log(req.body);
-//     try {
-//         const produce = new Produce(req.body);
-//         produce.productImage = req.file.path
-//         await produce.save();
-//         res.redirect('/productUpload');
-//         }
-//     catch (error) {
-//         res.status(400).send("Sorry,the upload was unsuccessful");
-//         console.log(error);
-//     }
+router.get('/productUpload', connectEnsureLogin.ensureLoggedIn(), (req,res)=> {
+    console.log("This is the current user", req.session.user);
+    res.render("productUploadForm", {currentUser:req.session.user});
+});
+router.post('/productUpload', connectEnsureLogin.ensureLoggedIn(),upload.single('productImage'), async (req,res) =>{
+    console.log(req.body);
+    try {
+        const produce = new Produce(req.body);
+        produce.productImage = req.file.path
+        await produce.save();
+        res.redirect('/productUpload');
+        }
+    catch (error) {
+        res.status(400).send("Sorry,the upload was unsuccessful");
+        console.log(error);
+    }
     
-// });
+});
 
 
 // router.get('/productUpload',async (req,res) =>{
@@ -100,7 +100,7 @@ router.get('/produceList', async (req,res) => {
 // updating produce 
 router.get('/produce/update/:id', async (req,res) =>{
     try {
-        const updateProduct = await Produce.findOne({_id:req.params.id});
+        const productUpdate = await Produce.findOne({_id:req.params.id});
         res.render('productUpdate', {product:productUpdate});
     } catch (error) {
         res.status(400).send('unable to update produce');
@@ -110,7 +110,7 @@ router.get('/produce/update/:id', async (req,res) =>{
 router.post('/produce/update/', async (req,res) =>{
     try {
         await Produce.findOneAndUpdate({_id:req.query.id}, req.body);
-        res.redirect('back');
+        res.redirect('/produceList');
     } catch (error) {
         res.status(400).send('unable to update produce');
     }
@@ -130,8 +130,8 @@ router.post('/produce/delete', async (req,res) => {
 // approving produce 
 router.get('/produce/approve/:id', async (req,res) =>{
     try {
-        const updateProduct = await Produce.findOne({_id:req.params.id});
-        res.render('productList', {product:productUpdate});
+        const approveProduct = await Produce.findOne({_id:req.params.id});
+        res.render('approvedProduceList', {product:approveProduct});
     } catch (error) {
         res.status(400).send('unable to update produce');
     }
@@ -140,7 +140,7 @@ router.get('/produce/approve/:id', async (req,res) =>{
 router.post('/produce/approve/', async (req,res) =>{
     try {
         await Produce.findOneAndUpdate({_id:req.query.id}, req.body);
-        res.redirect('/produceList');
+        res.redirect('/produce/approve/');
     } catch (error) {
         res.status(400).send('unable to update produce');
     }
