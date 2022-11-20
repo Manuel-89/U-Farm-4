@@ -44,21 +44,6 @@ router.get('/agricOfficerDashboard',connectEnsureLogin.ensureLoggedIn(), (req,re
 // }
 // })
 
-// Farner One list
-
-
-
-// router.get("/farmerOneList", async (req,res) => {
-//     try {
-//         let farmerOnes = await Registration.find({role: "farmerOne"})
-//         res.render("farmerOneList",{farmerOnes:farmerOnes});
-//     } catch (error) {
-//         res.status(400).send("Unable to find farmer Ones in the Database");
-//         console.log(error);
-        
-//     }
-    
-// });
 router.get('/farmerOneList', async (req,res) => {
     try {
         const sort = { _id: -1 };
@@ -74,18 +59,40 @@ router.get('/farmerOneList', async (req,res) => {
 router.get('/farmerOne/approve/:id', async (req,res) =>{
     try {
         const approveFarmerOne = await Registration.findOne({_id:req.params.id});
-        res.render('farmerOneApproval', {farmerOnes:approveFarmerOne});
+        res.render('farmerOneApproval', {farmerOne:approveFarmerOne});
     } catch (error) {
         res.status(400).send('unable to update farmerOnes');
     }
 
 })
+
 router.post('/farmerOne/approve/', async (req,res) =>{
     try {
         await Registration.findOneAndUpdate({_id:req.query.id}, req.body);
         res.redirect('/farmerOneList');
     } catch (error) {
         res.status(400).send('unable to update farmerOnes');
+    }
+
+});
+
+// updating farmerOnes 
+router.get('/farmeOne/update/:id', async (req,res) =>{
+    try {  
+        const updatefarmerOne = await Registraion.findOne({_id:req.params.id});
+        res.render('farmerOneUpdate', {farmerOne:updatefarmerOne});
+    } catch (error) {
+        res.status(400).send('unable to update farmerOneList');
+    }
+
+});
+
+router.post('/farmerOne/update/', async (req,res) =>{
+    try {
+        await Registraion.findOneAndUpdate({_id:req.query.id}, req.body);
+        res.redirect('/farmerOneList');
+    } catch (error) {
+        res.status(400).send('unable to update farmerOne');
     }
 
 })
@@ -99,7 +106,8 @@ router.get('/produce/update/:id', async (req,res) =>{
         res.status(400).send('unable to update produce');
     }
 
-})
+});
+
 router.post('/produce/update/', async (req,res) =>{
     try {
         await Produce.findOneAndUpdate({_id:req.query.id}, req.body);

@@ -18,7 +18,10 @@ router.post('/login', passport.authenticate("local", { failureRedirect: "/login"
         res.redirect('/farmerOneDashboard')
     } else if (req.user.role == "agriculturalOfficer"){
         res.redirect('/agricOfficerDashboard')
-    } else (
+    } else if (req.user.role == "generalUser"){
+        res.redirect('/generalUserDashboard')
+    }
+    else (
         res.send("Sorry, either your session has expired or you are not a registered user")
     )
     

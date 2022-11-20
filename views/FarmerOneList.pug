@@ -39,7 +39,7 @@ section#main
                th Status
                th Update 
                th Approve
-               th Delete
+          
       tbody 
             if farmerOnes.length 
                each farmerOne in farmerOnes 
@@ -54,17 +54,16 @@ section#main
                        td #{farmerOne.wardName}
                        td #{farmerOne.status}
                        td 
-                          a 
-                            button.btn.btn-primary.btn-block(href='/farmerOne/update'+farmerOne._id) Update 
+                          a.btn.btn-primary.btn-block(href='/farmerOne/update'+farmerOne._id) Update 
                        td
                           a.btn.btn-secondary.btn-block(href='/farmerOne/approve/'+farmerOne._id) Approve        
                        td 
-                            form(method="post" action='/farmerOne/delete')
-                            input(type="hidden", placeholder="", name="id", value=farmerOne._id)  
-                            button.btn.btn-danger.btn-block(type="submit") Delete
+                            //- form(method="post" action='/farmerOne/delete')
+                            //- input(type="hidden", placeholder="", name="id", value=farmerOne._id)  
+                            //- button.btn.btn-danger.btn-block(type="submit") Delete
     div.form-row 
         div.col.form-group 
-          a(class='button', href='/agriculturalOfficerDashboard') Back        
+          a(class='button', href='/agricOfficerDashboard') Back        
     
     
     

@@ -21,6 +21,7 @@ const homeRoutes = require('./routes/homepageRoutes');
 const farmerOneRoutes = require('./routes/farmerOneRoutes')
 const agriculturalOfficerRoutes = require('./routes/agriculturalOfficerRoutes')
 const urbanFarmerRoutes = require('./routes/urbanFarmerRoutes')
+const userRoutes = require('./routes/generalUserRoutes')
 
 // Instantiations
 const app = express();
@@ -67,7 +68,7 @@ app.use('/', oauthRoutes)
 app.use('/', homeRoutes)
 app.use('/', farmerOneRoutes)
 app.use('/', urbanFarmerRoutes)
-
+app.use('/', userRoutes)
 // app.use((req,res,next) => {
 //   console.log ("A new request received at " + Date.now());
 //   next();

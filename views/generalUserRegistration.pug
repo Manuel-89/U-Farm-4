@@ -23,10 +23,10 @@ section#alluserReg
       .row
         .col-md-6
           label.form-label(for="firstName") First Name
-          input.form-control#firstName(type="text" value="firstName")
+          input.form-control#firstName(type="text" name="firstName")
         .col-md-6
           label.form-label(for="lastName") Last Name
-          input.form-control#lastName(type="text" value="lastName")
+          input.form-control#lastName(type="text" name="lastName")
         div
           .row
             .col-md-4
@@ -34,38 +34,48 @@ section#alluserReg
               input.form-control#uniqueId(type="text" name="uniqueId")
             .col-md-4
               label.form-label(for="NIN") NIN
-              input.form-control#NIN(type="text" value="NIN")
+              input.form-control#NIN(type="text" name="NIN")
+            .col-md-4
+              label.form-label(for="wardName") Ward Name
+              select#wardName.form-select(name="wardName" value="")
+                option(selected) Choose...
+                option Massaja A
+                option Massaja B
+                option Massaja C
+                option Massaja D
           .row
             .col-md-4
               label.form-label(for="gender") Gender
-              select#Gender.form-select
+              select#gender.form-select(name="gender")
                 option(selected) Choose...
                 option(value="male") Male
                 option(value="female") Female
                 option(value="Other") Other
             .col-md-4
               label.form-label(for="phoneNumber") Phone Number
-              input.form-control#phoneNumber(type="phone" value="phoneNumber")
+              input.form-control#phoneNumber(type="phone" name="phoneNumber")
             .col-md-4
               label.form-label(for="dateOfBirth") Date of birth
-              input.form-control#dateOfBirth(type="date" vale="dateOfBirth")
+              input.form-control#dateOfBirth(type="date" name="dateOfBirth")
           .row
             .col-md-4
               label.form-label(for="registrationDate") Date of Registration
-              input.form-control#productUploadDate(type="date" value="registrationDate")
+              input.form-control#registrationDate(type="date" name="registrationDate")
             .col-lg-4.py-4
               label.form-label(for="directions") Directions
-              input.form-control-lg#directions(type="text" value="directions")
+              input.form-control-lg#directions(type="text" name="directions")
             .col-md-4
               label.form-label(for="password") Password
-              input.form-control#productUploadDate(type="password" value="")
+              input.form-control#password(type="password" name="password")
         .row
            .col-md-4
               label.form-label(for="role") Role
-              select#Gender.form-select
+              select#role.form-select(name="role")
                 option(selected) Choose...
                 option(value="generalUser") User
-                option(value="agriculturalOfficer") User
+                option(value="agriculturalOfficer") Agricultural Officer
+                option(value="farmerOne") Farmer One
+                option(value="urbanFarmer") Urban Farmer
 
         .row
           .col-12.text-center.py-4
