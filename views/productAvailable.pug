@@ -19,7 +19,7 @@ nav.navbar.navbar-expand-lg
 section#productUpload
   .container.justify-content-center
     
-    form.row.g-3(action="/produce/update?id="+product._id enctype ="multipart/form-data" method="post")
+    form.row.g-3(action="/produce/available?id="+product._id, method="post")
       h3.text-center Product Update
       //- #{currentUser.firstName}
       //- .row
@@ -74,11 +74,13 @@ section#productUpload
      
       .row
           .col-md-4
-            label.form-label(for="status") Produce Name
-            select#status.form-select(name="status")
+            label.form-label(for="availability") AVailability
+            select#status.form-select(name="availability")
               option(selected) Choose...
-              option(value="Pending" selected = product.availability === "Pending") Pending
-              option(value="Approved" selected = product.availability === "Approved") Approved
+              option(value="available" selected = product.availability === "available") Available
+              option(value="booked" selected = product.availability === "booked") Booked
+              option(value="N/A" selected = product.availability === "N/A") N/A
+               
           //- .col-md-4
           //-   label.form-label(for="productUploadDate") Date of Upload
           //-   input.form-control#productUploadDate(type="date" name="productUploadDate" value=product.productUploadDate)

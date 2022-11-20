@@ -1,6 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
+const connectEnsureLogin = require('connect-ensure-login');
+
+// Import User Model
+const Registraion = require('../models/User');
 
 router.get('/login', (req, res) => {
     res.render("Account");
@@ -13,24 +17,20 @@ router.post('/login', passport.authenticate("local", { failureRedirect: "/login"
     } else if (req.user.role == "farmerOne"){
         res.redirect('/farmerOneDashboard')
     } else if (req.user.role == "agriculturalOfficer"){
-        res.redirect('/agriculturalOfficerDashboard')
+        res.redirect('/agricOfficerDashboard')
     } else (
         res.send("Sorry, either your session has expired or you are not a registered user")
     )
     
 });
 
-router.post('/logout', (req,res) => {
-     if(req.session) {
-        req.session.destroy(function(error) {
-            if (error){
-                res.status(400).send("Unsuccessful logout")
-            }
-            else{
-                return res.redirect('/login');
-            }
-     })
-    }});
+
+router.post('/login', passport.authenticate("local",{failureRedirect:"/login"}),(req,res) => {
+     req.session.user = req.user;
+     console.log("This is the user", req.session.user),
+     res.redirect('/login');
+    
+     });
 
 
 module.exports = router;

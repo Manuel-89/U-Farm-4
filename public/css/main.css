@@ -85,6 +85,22 @@ border-radius: 60px;
     color: aquamarine;
     display: flexbox;
 }
+#alluserReg {
+    background-color: green;
+    color: aquamarine;
+    display: flexbox;
+}
+
+#dashboard {
+    background-color: green;
+    color: aquamarine;
+    display: flexbox;
+}
+
+#dashboard .nav{
+    background-color: beige;
+}
+
 
 
 #urbanFarmerRegistration{

@@ -11,18 +11,18 @@ nav.navbar.navbar-expand-lg
     .collapse.navbar-collapse#navbarScroll
       ul.navbar-nav.ms-auto.my-2.my-lg-0
         li.nav-item
-          a.nav-link(href="./views/Homepage.pug") Home
+          a.nav-link(href="/") Home
         li.nav-item
-          a.nav-link.m-auto(href="./views/Products.pug") Products
+          a.nav-link.m-auto(href="/Products") Products
         li.nav-item
-          a.nav-link(href="./views/Account.pug") Account
+          a.nav-link(href="/login") Account
 section#main
   .container.py-5
     .row.py-5
       .col-lg-7.pt-5.text-center
         h1.pt-5 Welcome to U Farm
-        p Your home of quality produce!
-        button.btn1 Click Here to view our products
+        p Your home of quality produce! 
+        a.btn.btn-danger(href='/products') Click Here to view our products
   section.about
     .container.py-5
       .row.py-5
@@ -31,11 +31,11 @@ section#main
       .row
         .col-lg-4
           img.img-fluid.mb-3(src="./images/high-quality.jpg", alt)
-          h3 Best QUality Products
+          h3 Best Quality Products
           p1 Your health is important to us. Qjality Control Figures Heavily on our list of priorities
           button.btn1 Explore our products
         .col-lg-4
-          img.img-fluid.mb-3(src="./images/Organicallysourced.jpg", alt)
+          img.img-fluid.mb-5(src="./images/Organicallysourced.jpg", alt="" height="50%")
           h4 Organically sourced
           p1.
             All products are sourced directly from our local farms. We liase with farmers to bring you farm fresh produce at the best possible prices!
@@ -45,7 +45,7 @@ section#main
           img.img-fluid.mb-3(src="./images/delivery-bike-shipping-fast-delivery-man-riding-motorcycle-icon-symbol1.jpg", alt)
           h4 Quick delivery
           p1 We aim to get your order to you in the shortest possible time. Place your order and have it delivered to you today!
-          button.btn1 Order Here
+          a.btn1(href="/products") Order Here
   section#footer
     .container.py-5.bg-grey.fluid
       .row

@@ -48,7 +48,7 @@ app.set('views', path.join(__dirname,'views'));
 // MIDDLEWARE
 app.use(express.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/public/uploads', express.static(__dirname + '/public/uploads'));
+// app.use('/public/uploads', express.static(__dirname + '/public/uploads'));
 app.use(expressSession);
 
  

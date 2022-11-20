@@ -16,16 +16,17 @@ nav.navbar.navbar-expand-lg
           a.nav-link.m-auto(href="#") 
         li.nav-item
           a.nav-link(href="#") 
-section#dashboard
+section#main
+
     header.card-header 
        h4.card-title Agricultural Officer Dashboard
        br
     nav
     #nav-tab.nav.nav-tabs(role='tablist')
-       a#nav-profile-tab.nav-item.nav-link(href='/registerFarmerOne') Register FarmerOne 
-       a#nav-profile-tab.nav-item.nav-link(href='/farmerOneList') View registered FarmerOnes 
-       a#nav-profile-tab.nav-item.nav-link(href='/reports') View Reports 
-       a.btn.btn-primary(href="/login") Logout
+       a#nav-profile-tab.nav-item.nav-link(href='/farmerOneRegistration') Register FarmerOne 
+       a#nav-profile-tab.nav-item.nav-link(href='/registeredfarmerOneList') View registered FarmerOnes 
+       a#nav-profile-tab.nav-item.nav-link(href='/Orders/Bookings') View Orders/Bookings 
+       
     #nav-tabContent.tab-content   
     br
     //- table.table.table-bordered 
@@ -63,7 +64,7 @@ section#dashboard
     //-                         button.btn.btn-danger.btn-block(type="submit") Delete
     div.form-row 
         div.col.form-group 
-          a(class='button', href='/agricOfficerDashboard') Back        
+          a(class='button', href='/agriculturalOfficerDashboard') Back        
     
     
     

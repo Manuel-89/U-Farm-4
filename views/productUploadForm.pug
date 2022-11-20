@@ -2,7 +2,7 @@ meta(charset="utf-8")
 meta(name="viewport", content="width=device-width,initial-scale=1")
 title Product Upload form
 link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi", crossorigin="anonymous")
-link(rel="stylesheet", href="/css/main.css")
+link(rel="stylesheet", href="css/main.css")
 nav.navbar.navbar-expand-lg
   .container
     a.navbar-brand(href="#") U Farm
@@ -35,10 +35,7 @@ section#productUpload
           select#supplierId.form-select(name="supplierId")
               if currentUser   
                            option(value=currentUser._id) #{currentUser.firstName +" "+ currentUser.lastName}
-              //- if urbanFarmers.length 
-              //-       each urbanFarmer in urbanFarmers   
-              //-         option(value=urbanFarmer._id) #{urbanFarmer.firstName +"" + urbanFarmer.lastName}
-          
+              
         //-   //- input.form-control#supplierId(name="supplierId" type="text" value="")
         //- //- .col-md-6
         //- //-   label.form-label(for="NIN") NIN
@@ -63,12 +60,10 @@ section#productUpload
         .col-md-4
           label.form-label(for="wardName") Ward Name
           select#wardName.form-select(name="wardName")
-                    //- if currentUser 
-                          //- option(value="") Choose...
-                          //- option(value = currentUser._id) #{currentUser.wardName}
-                    if urbanFarmers.length 
-                          each urbanFarmer in urbanFarmers
-                            option(value = urbanFarmer._id) #{urbanFarmer.wardName}
+                    if currentUser 
+                          option(value="") Choose...
+                          option(value = currentUser._id) #{currentUser.wardName}
+                  
 
         //-     option(selected) Choose...
         //-     option Massaja A

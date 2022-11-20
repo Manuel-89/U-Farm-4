@@ -19,10 +19,8 @@ router.get('/farmerOneDashboard',connectEnsureLogin.ensureLoggedIn(), (req,res) 
     
 });
 
-// Farner One list
-router.get('/farmerOneList', (req,res) =>{
-    res.render("farmerOneAccountList");
-});
+
+
 
 // Farmer One Activities
 router.get('/farmerOneActivities', (req,res) => {
@@ -41,8 +39,6 @@ router.get('/registerFarmerOne', (req,res) => {
 router.post('/registerFarmerOne', (req,res) => {
     console.log(req.body);
 }); 
-// farmerOneDashboard
-
 
 module.exports = router;
 

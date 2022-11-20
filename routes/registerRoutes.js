@@ -1,11 +1,13 @@
 // const { Router } = require('express');
 const express = require('express');
 const router = express.Router();
+const connectEnsureLogin = require('connect-ensure-login');
+
 // Importing model
 const Registration = require('../models/User')
 
 router.get('/register', (req,res) =>{
-     res.render("urbanFarmerRegistration");
+     res.render("generalUserRegistration");
 });
 router.post('/register', async (req,res) =>{
     console.log("req.body");
@@ -19,7 +21,7 @@ router.post('/register', async (req,res) =>{
             await Registration.register(user, req.body.password, (error) => {
                 if (error){
                     throw error
-                } res.redirect ('/register')
+                } res.redirect ('/login')
             });
            
         }
@@ -36,35 +38,31 @@ router.get('/generalUser', (req,res) => {
 });
 router.post('/generalUser', (req,res) => {
     console.log(req.body);
-    res.redirect('/Account');
+    res.redirect('/login');
 });
 router.get('/registerFarmerOne', (req,res) => {
     res.render('farmerOneRegistration')
 });
 router.post('/registerFarmerOne', (req,res) => {
     console.log(req.body);
-    res.redirect('/registerFarmerOne');
+    res.redirect('/login');
 }); 
 router.get('/registerAgricOfficer', (req,res) => {
     res.render('agriculturalOfficerRegistration')
 });
 router.post('/registerAgricOfficer', (req,res) => {
     console.log(req.body);
-    res.redirect('/agriculturalOfficerRegistration');
+    res.redirect('/login');
 }); 
 
+router.get('/registerUrbanFarmer', (req,res) => {
+    res.render('urbanFarmerRegistration')
+});
+router.post('/registerAgricOfficer', (req,res) => {
+    console.log(req.body);
+    res.redirect('/login');
+}); 
 
-router.get("/farmerOneList", async (req,res) => {
-    try {
-        let farmerOnes = await Registration.find({role: "farmerOne"})
-        res.render("farmerOneList",{farmerOnes:farmerOnes});
-    } catch (error) {
-        res.status(400).send("Unable to find farmer Ones in the Database");
-        console.log(error);
-        
-    }
-    
-})
 
 module.exports = router;
 

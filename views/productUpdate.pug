@@ -19,30 +19,10 @@ nav.navbar.navbar-expand-lg
 section#productUpload
   .container.justify-content-center
     
-    form.row.g-3(action="/produce/update?id="+product._id enctype ="multipart/form-data" method="post")
+    form.row.g-3(action="/produce/update?id="+product._id name="" method="post")
       h3.text-center Product Update Form 
       //- #{currentUser.firstName}
-      //- .row
-      //-   .col-md-6
-      //-     label.form-label(for="firstName") First Name
-      //-     input.form-control#firstName(type="text" value="")
-      //-   .col-md-6
-      //-     label.form-label(for="lastName") Last Name
-      //-     input.form-control#lastName(type="text" value="")
-      .row
-        .col-md-6
-          label.form-label(for="supplierId") Supplier Id
-          select#supplierId.form-select(name="supplierId")
-              if currentUser   
-                           option(value=currentUser._id) #{currentUser.firstName +" "+ currentUser.lastName}
-              //- if urbanFarmers.length 
-              //-       each urbanFarmer in urbanFarmers   
-              //-         option(value=urbanFarmer._id) #{urbanFarmer.firstName +"" + urbanFarmer.lastName}
-          
-        //-   //- input.form-control#supplierId(name="supplierId" type="text" value="")
-        //- //- .col-md-6
-        //- //-   label.form-label(for="NIN") NIN
-        //- //-   input.form-control#NIN(type="text" value="")
+     
       .row
         .col-md-6
           label.form-label(for="produceName") Produce Name
@@ -53,24 +33,7 @@ section#productUpload
       .row
         .col-md-4
           label.form-label(for="price") Price
-          input.form-control#price(type="text", placeholder="" name="price" value=product.price)
-        .col-md-4
-          label.form-label(for="wardName") Ward Name
-          select#wardName.form-select(name="wardName")
-                    if currentUser 
-                        option(value="") Choose...
-                        option(value = currentUser._id) #{currentUser.wardName}
-          //- if urbanFarmers.length 
-              //-         each urbanFarmer in urbanFarmers
-                //-           option(value = urbanFarmer._id) #{urbanFarmer.wardName}
-          //- option(selected) Choose...
-          //- option(value="Massaja A" selected = product.wardName === "Masajja A") Massaja A
-          //- option(value="Massaja B" selected = product.wardName === "Masajja B") Massaja B
-          //- option(value="Masajja C" selected = product.wardName === "Masajja C") Massaja C
-          //- option(value="Massaja D" selected = product.wardName === "Masajja D") Massaja D
-        //- div.
-          
-          
+          input.form-control#price(type="text", placeholder="" name="price" value=product.price)             
         .row
           .col-md-4
             label.form-label(for="deliveryMode") Delivery Mode

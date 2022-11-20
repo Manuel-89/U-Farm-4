@@ -23,48 +23,41 @@ section#main
        br
     nav
     #nav-tab.nav.nav-tabs(role='tablist')
-       a#nav-profile-tab.nav-item.nav-link(href='/farmerOneRegistration') Register FarmerOne 
+       a.btn.btn-primary(href='/login') LogOut 
     #nav-tabContent.tab-content   
     br
     table.table.table-bordered 
       thread 
              tr      
-               th Supplier Id
                th Produce Name
                th Produce Quantity
                th Price
                th Produce Upload date 
                th Mode of delivery 
-               th Ward
-               th Availability
-               th Product Image     
-               th Update 
-               th Availability
-               th Delete
+               th Availability 
+               th Status
+               th Product Image  
+              
       tbody 
             if products.length 
                each product in products 
                   if product.status == "Approved"
-                      tr 
-                       td #{product.supplierId}
+                     tr 
                        td #{product.produceName}
                        td #{product.produceQuantity}
                        td #{product.price}
                        td #{product.productUploadDate}
                        td #{product.deliveryMode}
-                       td #{product.wardName}
                        td #{product.availability}
                        td #{product.status}
                        td 
                           img(src="/"+product.productImage, alt="image" width="150px" Height="170px")
                        td 
-                          a.btn.btn-primary.btn-block(href='/produce/update/'+product._id) Update 
+                          a.btn.btn-primary.btn-block(href=''+product._id) Buy 
                        td 
-                          a.btn.btn-secondary.btn-block(href='/produce/approve/'+product._id) Change Status    
+                          a.btn.btn-secondary.btn-block(href='/produce/available/'+product._id) Availability   
                        td 
-                            form(method="post" action='/produce/delete')
-                            input(type="hidden", placeholder="", name="id", value=product._id)  
-                            button.btn.btn-danger.btn-block(type="submit") Delete
+                            
     div.form-row 
         div.col.form-group 
           a(class='button', href='/agriculturalOfficerDashboard') Back        

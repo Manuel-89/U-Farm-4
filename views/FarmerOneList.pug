@@ -17,7 +17,7 @@ nav.navbar.navbar-expand-lg
         li.nav-item
           a.nav-link(href="#") 
 section#main
-
+.container.justify-content-center
     header.card-header 
        h4.card-title Farmer One List
        br
@@ -30,18 +30,21 @@ section#main
       thread 
              tr 
                th Full Name
+               th NIN
                th Gender
-               th uniqueId
-               th NIN 
-               th Ward
-               th Phone Number 
-               th Period of stay
+               th Phone Number
+               th Period Of Stay
+               th Unique ID
+               th Ward Name
+               th Status
                th Update 
+               th Approve
                th Delete
       tbody 
             if farmerOnes.length 
                each farmerOne in farmerOnes 
-                  tr 
+                  if farmerOne.status == "Pending"
+                    tr 
                        td #{farmerOne.firstName +" "+ farmerOne.lastName}
                        td #{farmerOne.NIN}
                        td #{farmerOne.gender}
@@ -49,10 +52,12 @@ section#main
                        td #{farmerOne.periodOfStay}
                        td #{farmerOne.uniqueId}
                        td #{farmerOne.wardName}
-            
+                       td #{farmerOne.status}
                        td 
                           a 
                             button.btn.btn-primary.btn-block(href='/farmerOne/update'+farmerOne._id) Update 
+                       td
+                          a.btn.btn-secondary.btn-block(href='/farmerOne/approve/'+farmerOne._id) Approve        
                        td 
                             form(method="post" action='/farmerOne/delete')
                             input(type="hidden", placeholder="", name="id", value=farmerOne._id)  
