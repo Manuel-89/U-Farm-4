@@ -39,6 +39,9 @@ const produceSchema = new mongoose.Schema({
         type: String,
     
     },
+    paymentMethod:{
+        type: String
+    },
     status: {
         type: String,
         default:"Pending",

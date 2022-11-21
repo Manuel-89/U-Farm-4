@@ -19,7 +19,7 @@ nav.navbar.navbar-expand-lg
 section#productUpload
   .container.justify-content-center
     
-    form.row.g-3(action="/farmerOne/update?id="+farmerOne._id, name="farmerOneUpdate" method="post")
+    form.row.g-3(action="/farmerOne/update?id="+farmerOne._id,  method="post")
       h3.text-center farmerOne Update Form     
         .row
            .col-md-4
@@ -56,17 +56,8 @@ section#productUpload
                 option(value="7" selected = farmerOne.periodofStay === "7") 7
                 option(value="8" selected = farmerOne.periodofStay === "8") 8
                 option(value="9" selected = farmerOne.periodofStay === "9") 9
-                option(value="10"selected = farmerOne.periodofStay === "10") 10             
-        .row
-           .col-md-4
-             label.form-label(for="deliveryMode") Delivery Mode
-              select#deliveryMode.form-select(name="deliveryMode")
-                option(selected) Choose...
-                option(value="InStorePickUp" selected = product.deliveryMode === "InStorePickUp") Pick-Up
-                option(value="periodOfStay" selected = product.deliveryMode === "periodOfStay") Delivery
-          .col-md-4
-            label.form-label(for="productUploadDate") Date of Upload
-            input.form-control#productUploadDate(type="date" name="productUploadDate" value=product.productUploadDate)
+                option(value="10" selected = farmerOne.periodofStay === "10") 10             
+
           
       .col-12.text-center.py-4
           button.btn.btn-primary(type="submit") Update

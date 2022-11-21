@@ -3,7 +3,7 @@ const router = express.Router();
 const connectEnsureLogin = require('connect-ensure-login');
 
 // Import User Model
-const Registraion = require('../models/User');
+const Registration = require('../models/User');
 
 router.get('/', (req, res) => {
     res.render("Homepage");

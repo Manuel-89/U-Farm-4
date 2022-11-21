@@ -23,7 +23,7 @@ section#main
        br
     nav
     #nav-tab.nav.nav-tabs(role='tablist')
-       a#nav-profile-tab.nav-item.nav-link(href='/farmerOneRegistration') Register FarmerOne 
+       a#nav-profile-tab.nav-item.nav-link(href='/registerfarmerOne') Register FarmerOne 
     #nav-tabContent.tab-content   
     br
     table.table.table-bordered 
@@ -37,6 +37,7 @@ section#main
                th Unique ID
                th Ward Name
                th Status
+               th Activities
                th Update 
                th Approve
           
@@ -53,8 +54,9 @@ section#main
                        td #{farmerOne.uniqueId}
                        td #{farmerOne.wardName}
                        td #{farmerOne.status}
+                       td #{farmerOne.activitiesUndertaken}
                        td 
-                          a.btn.btn-primary.btn-block(href='/farmerOne/update'+farmerOne._id) Update 
+                          a.btn.btn-primary.btn-block(href='/farmerOne/update/'+farmerOne._id) Update 
                        td
                           a.btn.btn-secondary.btn-block(href='/farmerOne/approve/'+farmerOne._id) Approve        
                        td 

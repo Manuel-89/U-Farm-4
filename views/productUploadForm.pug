@@ -41,12 +41,18 @@ section#productUpload
         //- //-   label.form-label(for="NIN") NIN
         //- //-   input.form-control#NIN(type="text" value="")
       .row
-        .col-md-6
+        .col-md-4
           label.form-label(for="produceName") Produce Name
           input.form-control#produceName(name="produceName" type="text" value="")
-        .col-md-6
+        .col-md-4
           label.form-label(for="produceQuantity") Produce Quantity
           input.form-control#produceQuantity(name="produceQuantity" type="text" value="")
+        .col-md-4
+            label.form-label(for="paymentMethod") Payment Method
+            select#deliveryMode.form-select(name="paymentMethod")
+              option(selected) Choose...
+              option(value="Mobile Money") Mobile Money
+              option(value="Cash") Cash
       .row
         .col-md-4
           label.form-label(for="price") Price
@@ -84,7 +90,7 @@ section#productUpload
             label.form-label(for="productUploadDate") Date of Upload
             input.form-control#productUploadDate(type="date" name="productUploadDate")
           .col-md-4
-              label.form-label(for="productImage") upload
+              label.form-label(for="productImage") Product Image
               input.form-control#productImage(type="file" name="productImage")
         .col-12.text-center.py-4
           button.btn.btn-primary(type="submit") Upload

@@ -4,7 +4,7 @@ const router = express.Router();
 const connectEnsureLogin = require('connect-ensure-login');
 
 // Import User Model
-const Registraion = require('../models/User');
+const Registration = require('../models/User');
 const Produce = require('../models/Produce');
 
 

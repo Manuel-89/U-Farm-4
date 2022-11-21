@@ -37,6 +37,7 @@ section#dash
                th Price
                th Produce Upload date 
                th Mode of delivery 
+               th Mode of payment
                th Ward
                th Availability
                th Status     
@@ -54,6 +55,7 @@ section#dash
                        td #{product.price}
                        td #{product.productUploadDate}
                        td #{product.deliveryMode}
+                       td #{product.paymentMode}
                        td #{product.wardName}
                        td #{product.availability}
                        td #{product.status}
@@ -64,8 +66,8 @@ section#dash
                        td 
                           a.btn.btn-secondary.btn-block(href='/produce/approve/'+product._id) Approve    
                        td 
-                            form(method="post" action="/produce/delete")
-                            input(type="hidden" placeholder="" name="id", value=product._id)  
+                          form(method="post" action='/produce/delete/')
+                            input(type="hidden" placeholder="" name="id" value=product._id)  
                             button.btn.btn-danger.btn-block(type="submit") Delete
     div.form-row 
         div.col.form-group 

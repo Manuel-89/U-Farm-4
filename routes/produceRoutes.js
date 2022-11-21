@@ -178,7 +178,35 @@ router.get('/approvedProduceList', async (req,res) => {
     
 })
 
+//Order get and post Routes start here 
+router.get("/produce/order/:id", async (req, res) => {
+	try {
+		const ordering = await Produce.findOne({ _id: req.params.id });
+		res.render("productOrder", { orderProd: ordering });
+		console.log('Order product',ordering)
+	} catch (error) {
+		res.status(400).send("Can't order product");
+	}
+});
 
+router.post("/produce/order", async (req, res) => {
+	try {
+		await Produce.findOneAndUpdate({ _id: req.query.id }, req.body);
+		res.redirect("/products");
+	} catch (error) {
+		res.status(400).send("Unable to find produce");
+	}
+});
+
+// Return Order list
+router.get("/orders", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+	try {
+		let ordered = await Produce.find({ role: "Urban Farmer" });
+		res.render("orderList", { orderedGoods:ordered });
+	} catch (error) {
+		res.status(400).send("No product booked yet!");
+	}
+});
 
 
 

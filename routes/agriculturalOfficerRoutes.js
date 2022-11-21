@@ -4,7 +4,7 @@ const router = express.Router();
 const connectEnsureLogin = require('connect-ensure-login');
 
 // Import User Model
-const Registraion= require('../models/User');
+const Registration= require('../models/User');
 const Produce = require('../models/Produce');
 
 // Agricultural officer Dashboard
@@ -46,13 +46,34 @@ router.get('/agricOfficerDashboard',connectEnsureLogin.ensureLoggedIn(), (req,re
 
 router.get('/farmerOneList', async (req,res) => {
     try {
-        const sort = { _id: -1 };
-        let farmerOnes = await Registraion.find().sort({$natural: -1});
+        let farmerOnes = await Registration.find({role: 'farmerOne'});
         res.render("farmerOneList", {farmerOnes:farmerOnes});    
     } catch (error) {
         res.status(400).send("Unable to get farmer One list");
     }
     
+});
+
+
+// updating farmerOnes 
+router.get('/farmerOne/update/:id', async (req,res) =>{
+    try {  
+        const updateFarmerOne = await Registration.findOne({_id:req.params.id});
+        res.render('farmerOneUpdate', {farmerOne:updateFarmerOne});
+    } catch (error) {
+        res.status(400).send('unable to update farmerOneList');
+    }
+
+});
+
+router.post('/farmerOne/update/', async (req,res) =>{
+    try {
+        await Registration.findOneAndUpdate({_id:req.query.id}, req.body);
+        res.redirect('/farmerOneList');
+    } catch (error) {
+        res.status(400).send('unable to update farmerOne');
+    }
+
 });
 
 // approving farmerOnes 
@@ -76,26 +97,18 @@ router.post('/farmerOne/approve/', async (req,res) =>{
 
 });
 
-// updating farmerOnes 
-router.get('/farmeOne/update/:id', async (req,res) =>{
-    try {  
-        const updatefarmerOne = await Registraion.findOne({_id:req.params.id});
-        res.render('farmerOneUpdate', {farmerOne:updatefarmerOne});
-    } catch (error) {
-        res.status(400).send('unable to update farmerOneList');
-    }
-
-});
-
-router.post('/farmerOne/update/', async (req,res) =>{
+//approvedFarmerOneList
+router.get('/approvedFarmerOneList', async (req,res) => {
     try {
-        await Registraion.findOneAndUpdate({_id:req.query.id}, req.body);
-        res.redirect('/farmerOneList');
+        let farmerOneApprovedList = await Registration.find().sort({$natural:-1});
+        res.render('approvedFarmerOneList',{farmerOnes:farmerOneApprovedList});
     } catch (error) {
-        res.status(400).send('unable to update farmerOne');
+     res.status(400).send("Sorry there is no approved list")    
     }
-
+    
 })
+
+
 
 // updating produce 
 router.get('/produce/update/:id', async (req,res) =>{
@@ -121,9 +134,8 @@ router.post('/produce/update/', async (req,res) =>{
 // Farmer One Activities
 router.get('/farmerOneActivities', async (req,res) => {
     try {
-        const sort = { _id: -1 };
-        let farmerOnes = await Registraion.find().sort({$natural: -1});
-        res.render("farmerOneActivities", {farmerOnes:farmerOnes});    
+        let activities = await Registration.find().sort({$natural: -1});
+        res.render("farmerOneActivities", {farmerOnes:activities});    
     } catch (error) {
         res.status(400).send("Unable to get farmer One Activities");
     }
@@ -134,9 +146,8 @@ router.get('/farmerOneActivities', async (req,res) => {
 // Ward
 router.get('/farmerOneWards', async (req,res) => {
     try {
-        const sort = { _id: -1 };
-        let farmerOnes = await Registraion.find().sort({$natural: -1});
-        res.render("farmerOneWards", {farmerOnes:farmerOnes});    
+        let wards = await Registration.find().sort({$natural: -1});
+        res.render("farmerOneWards", {farmerOnes:wards});    
     } catch (error) {
         res.status(400).send("Unable to get farmer One Wards");
     }
