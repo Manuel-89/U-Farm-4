@@ -36,30 +36,32 @@ section#main
                th Period Of Stay
                th Unique ID
                th Ward Name
+               th Status
                th Activities
                th Update 
                th Approve
           
       tbody 
-            if urbanFarmers.length 
-               each urbanFarmer in urbanFarmers 
-                  
+            if farmerOnes.length 
+               each farmerOne in farmerOnes 
+                  if farmerOne.status == "Pending"
                     tr 
-                       td #{urbanFarmer.firstName +" "+ urbanFarmer.lastName}
-                       td #{urbanFarmer.NIN}
-                       td #{urbanFarmer.gender}
-                       td #{urbanFarmer.phoneNumber}
-                       td #{urbanFarmer.periodOfStay}
-                       td #{urbanFarmer.uniqueId}
-                       td #{urbanFarmer.wardName}
-                       td #{urbanFarmer.activitiesUndertaken}
+                       td #{farmerOne.firstName +" "+ farmerOne.lastName}
+                       td #{farmerOne.NIN}
+                       td #{farmerOne.gender}
+                       td #{farmerOne.phoneNumber}
+                       td #{farmerOne.periodOfStay}
+                       td #{farmerOne.uniqueId}
+                       td #{farmerOne.wardName}
+                       td #{farmerOne.status}
+                       td #{farmerOne.activitiesUndertaken}
                        td 
-                          a.btn.btn-primary.btn-block(href='/urbanFarmer/update/'+urbanFarmer._id)  
+                          a.btn.btn-primary.btn-block(href='/farmerOne/update/'+farmerOne._id) Update 
                        td
-                          a.btn.btn-secondary.btn-block(href='/urbanFarmer/approve/'+urbanFarmer._id)       
+                          a.btn.btn-secondary.btn-block(href='/farmerOne/approve/'+farmerOne._id) Approve        
                        td 
-                            //- form(method="post" action='/urbanFarmer/delete')
-                            //- input(type="hidden", placeholder="", name="id", value=urbanFarmer._id)  
+                            //- form(method="post" action='/farmerOne/delete')
+                            //- input(type="hidden", placeholder="", name="id", value=farmerOne._id)  
                             //- button.btn.btn-danger.btn-block(type="submit") Delete
     div.form-row 
         div.col.form-group 

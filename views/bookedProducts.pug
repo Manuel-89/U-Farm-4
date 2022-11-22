@@ -1,6 +1,6 @@
 meta(charset="utf-8")
 meta(name="viewport", content="width=device-width,initial-scale=1")
-title Approved Farmer List
+title Booked Product
 link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi", crossorigin="anonymous")
 link(href="./main.css", rel="stylesheet")
 nav.navbar.navbar-expand-lg
@@ -40,14 +40,14 @@ section#main
                 each orderedGood in orderedGoods
                     if orderedGood.availability == 'Booked' && orderedGood.wardName === currentUser.wardName 
                         tr
-                            td #{orderedGood.prodName}
+                            td #{orderedGood.produceName}
                             td #{orderedGood.price}
-                            td #{orderedGood.prodQuantity}
+                            td #{orderedGood.produceQuantity}
                             td #{orderedGood.customers_Email}
                             td #{orderedGood.customers_contact}
                             td #{orderedGood.customers_address}
                             td 
-                                img(src="/"+orderedGood.prodImage, alt="Image" width='150px' height="150px")
+                                img(src="/"+orderedGood.productImage, alt="Image" width='150px' height="150px")
                             td #{orderedGood.availability} 
                             td                            
                                 a.btn.btn-primary.btn-block.availability(href='/produce/available/'+orderedGood._id) Update

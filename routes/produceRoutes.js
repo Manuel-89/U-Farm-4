@@ -192,7 +192,7 @@ router.get("/produce/order/:id", async (req, res) => {
 router.post("/produce/order", async (req, res) => {
 	try {
 		await Produce.findOneAndUpdate({ _id: req.query.id }, req.body);
-		res.redirect("/products");
+		res.redirect("/approvedProduceList");
 	} catch (error) {
 		res.status(400).send("Unable to find produce");
 	}
@@ -202,7 +202,7 @@ router.post("/produce/order", async (req, res) => {
 router.get("/orders", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
 	try {
 		let ordered = await Produce.find({ role: "Urban Farmer" });
-		res.render("orderList", { orderedGoods:ordered });
+		res.render("bookedProducts", { orderedGoods:ordered });
 	} catch (error) {
 		res.status(400).send("No product booked yet!");
 	}

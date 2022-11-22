@@ -2,7 +2,7 @@ meta(charset="utf-8")
 meta(name="viewport", content="width=device-width,initial-scale=1")
 title Approved Farmer List
 link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi", crossorigin="anonymous")
-link(href="./main.css", rel="stylesheet")
+link(href="css/main.css", rel="stylesheet")
 nav.navbar.navbar-expand-lg
   .container
     a.navbar-brand(href="#") U Farm
@@ -17,29 +17,28 @@ nav.navbar.navbar-expand-lg
         li.nav-item
           a.nav-link(href="#") 
 section#main
-.container.form-style
-        form#signup.form(action='/produce/order/?id='+orderProd._id name='registration' method='POST')
-            h3 Products booking/ordering
-            hr
+  .container.justify-content-center
+        form.row.g-3(action='/produce/order/?id='+orderProd._id name='registration' method='POST')
+            h3.text-center Products booking/ordering
+        
             .row
-                .col
-                    .form-field
-                        label(for='availability') Product booked:
-                        select(name='availability')
-                            option(value="Booked" selected = orderProd.availability === 'Booked') Booked
-                    .form-field
-                        label customers' Email
-                        input(type="email" name="customers_Email")
-                    .form-field
-                        label customers' contact
-                        input(type="text" name="customers_contact")
-                    .form-field
-                        label customers' address
-                        input(type="text" name="customers_address")
-                .form-field
-                    button.submit(type='submit') Submit    
-    
-    
+                .col-md-4
+                    label.form-label(for='availability') Product booked:
+                    select#status.form-select(name='availability')
+                        option(value="Booked" selected = orderProd.availability === 'Booked') Booked
+                .col-md-4
+                    label.form-label(for='customers_Email') Customers Email
+                    input.form-control#customersemail(type="text" name="customers_Email")
+                .col-md-4
+                    label.form-label(for='customers_contact') Customer contact
+                    input.form-control#customerscontact(type="text" name="customers_contact")
+            .row   
+                .col-md-4
+                    label.form-label(for='customers_address') Customer address
+                    input.form-control#customersaddress(type="text" name="customers_address")
+            .row
+                .col-12.text-center.py-4
+                    button.btn.btn-success(type='submit') Submit            
 section#footer
   .container.py-5.bg-grey.fluid
       .row
