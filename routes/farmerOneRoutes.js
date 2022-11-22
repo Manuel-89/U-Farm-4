@@ -19,26 +19,29 @@ router.get('/farmerOneDashboard',connectEnsureLogin.ensureLoggedIn(), (req,res) 
     
 });
 
-
-
-
-// Farmer One Activities
-router.get('/farmerOneActivities', (req,res) => {
-    res.render('farmerOneActivities')
+router.get('/urbanFarmerList', async (req,res) => {
+    try {
+        let urbanFarmers = await Registration.find({role: 'urbanFarmer'});
+        res.render("urbanFarmerList", {urbanfarmers:urbanFarmers});    
+    } catch (error) {
+        res.status(400).send("Unable to get farmer One list");
+    }
+    
 });
 
-// Ward
-router.get('/generalUser', (req,res) => {
-    res.render('wardList');
-});
 
-// 
-router.get('/registerFarmerOne', (req,res) => {
-    res.render('farmerOneRegistration')
-});
-router.post('/registerFarmerOne', (req,res) => {
-    console.log(req.body);
-}); 
+// // Ward
+// router.get('/generalUser', (req,res) => {
+//     res.render('wardList');
+// });
+
+// // 
+// router.get('/registerFarmerOne', (req,res) => {
+//     res.render('farmerOneRegistration')
+// });
+// router.post('/registerFarmerOne', (req,res) => {
+//     console.log(req.body);
+// }); 
 
 module.exports = router;
 
