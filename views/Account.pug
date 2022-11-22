@@ -27,10 +27,10 @@ section#login
 form(action="/login" name="" method="POST")
     .col-md-6.mx-auto
       label.form-label(for="uniqueId") Unique Id
-      input.form-control#uniqueid(name="uniqueId" type="text" value="")
+      input.form-control#uniqueid(name="uniqueId" type="text" value="" required)
     .col-md-6.mx-auto
       label.form-label(for="password") Password
-      input.form-control#password(name="password" type="password" value="")
+      input.form-control#password(name="password" type="password" value="" required)
     .row
     .col-12.text-center.py-4
       button.btn.btn-primary(type="submit") Login

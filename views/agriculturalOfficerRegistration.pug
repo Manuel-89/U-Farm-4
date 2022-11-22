@@ -23,15 +23,15 @@ section#alluserReg
       .row
         .col-md-6
           label.form-label(for="firstName") First Name
-          input.form-control#firstName(type="text" name="firstName")
+          input.form-control#firstName(type="text" name="firstName" required)
         .col-md-6
           label.form-label(for="lastName") Last Name
-          input.form-control#lastName(type="text" name="lastName")
+          input.form-control#lastName(type="text" name="lastName" required)
         div
           .row
             .col-md-4
               label.form-label(for="uniqueId") Unique Id
-              input.form-control#uniqueId(type="text" name="uniqueId")
+              input.form-control#uniqueId(type="text" name="uniqueId" required)
             .col-md-4
               label.form-label(for="NIN") NIN
               input.form-control#NIN(type="text" name="NIN")
@@ -55,7 +55,7 @@ section#alluserReg
               input.form-control#productUploadDate(type="date" value="" name="registrationDate")
             .col-md-4
               label.form-label(for="password") Password
-              input.form-control#password(type="password" value="" name="password")
+              input.form-control#password(type="password" value="" name="password" required)
         .row
            .col-md-4
               label.form-label(for="role") Role

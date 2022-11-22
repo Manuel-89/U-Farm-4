@@ -23,15 +23,15 @@ section#productUpload
       .row
         .col-md-6
           label.form-label(for="firstName") First Name
-          input.form-control#firstName(name="firstName" type="text" value="")
+          input.form-control#firstName(name="firstName" type="text" value="" required)
         .col-md-6
           label.form-label(for="lastName") Last Name
-          input.form-control#lastName(name="lastName" type="text" value="")
+          input.form-control#lastName(name="lastName" type="text" value="" required)
         div
           .row
             .col-md-4
               label.form-label(for="uniqueId") Unique Id
-              input.form-control#uniqueId(name="uniqueId" type="text" value="")
+              input.form-control#uniqueId(name="uniqueId" type="text" value="" required)
             .col-md-4
               label.form-label(for="NIN") NIN
               input.form-control#NIN(name="NIN" type="text" value="")
@@ -101,7 +101,7 @@ section#productUpload
           .row
             .col-md-4
               label.form-label(for="password") Password
-              input.form-control#password(name="password" type="password" value="")
+              input.form-control#password(name="password" type="password" value="" required)
           .row
             .col-12.text-center.py-4
               button.btn.btn-primary(type="submit") Register
